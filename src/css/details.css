@@ -1,0 +1,106 @@
+.container-todo-details {
+  flex: 2;
+  margin-right: 0.5rem;
+  height: 29rem;
+}
+
+.message {
+  background-color: var(--color-btn-gray);
+  border-radius: 5px;
+  box-shadow: var(--box-shadow);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.message svg {
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-left: 0.5rem;
+}
+
+.todo-details {
+  background-image: linear-gradient(var(--color-btn-gray), var(--color-light-gray) 200%);
+  border-radius: 5px;
+  box-shadow: var(--box-shadow);
+  padding: 0.5rem 2rem;
+  height: 89.6%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.todo-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--color-primary-darker);
+}
+
+
+.todo-status {
+  display: flex;
+  flex-direction: row;
+  align-items: center
+}
+
+.todo-description {
+  text-align: justify;
+  font-size: 1.2rem
+}
+
+.todo-dates {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 3rem;
+  padding: 2rem 0 0.5rem 0;
+}
+
+.todo-created, .todo-deadline {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.todo-created-title, .todo-deadline-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.icon-details {
+  height: 1rem;
+  width: 1rem;
+  margin-right: 0.2rem;
+}
+
+.edit-delete-todo {
+  float: right;
+  padding-bottom: 0.5rem;
+}
+
+.btn-edit, .btn-delete {
+  float: inherit;
+  color: var(--color-primary-darker);
+  transition: all .3s;
+}
+
+.btn-edit:hover, .btn-delete:hover {
+  background-image: linear-gradient(var(--color-primary), var(--color-primary-darker) 100%);
+  color: var(--color-btn-gray);
+  transform: scale(1.1);
+}
+
+.icon-edit, .icon-delete {
+  margin: 0;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.btn-edit {
+  margin-right: 1rem
+}

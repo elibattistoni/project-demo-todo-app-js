@@ -1,0 +1,88 @@
+.add-todo-window {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  height: 45%;
+  background-color: var(--color-whiteish);
+  border-radius: 9px;
+  padding: 1.5rem 2rem;
+  box-shadow: var(--box-shadow);
+  z-index: 1000;
+  transition: all 0.5s;
+}
+
+.btn-close-modal {
+  font-family: inherit;
+  color: inherit;
+  position: absolute;
+  top: 0.2rem;
+  right: 0.5rem;
+  font-size: 2rem;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
+
+.form-add-todo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.form-list-fields {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.form-field {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.form-field input, .form-field select, .form-field textarea {
+  outline: none;
+  font-family: inherit;
+  display: block;
+  box-sizing: border-box;
+  padding: 0.25rem;
+  border: 1px solid black;
+  border-radius: 3px;
+  background-color: var(--color-btn-gray);
+}
+
+.form-field textarea {
+  resize: none
+}
+
+.form-field select option {
+  margin-top: 2rem
+}
+
+.form-field input:focus,
+.form-field textarea:focus,
+.form-field select:active {
+  outline: none;
+  background-color: var(--color-primary-alpha);
+  color: var(--color-dark-gray);
+  border: 1px solid var(--color-primary-darker)
+}
+
+.submit-btn {
+  width: 5rem;
+  align-self: flex-end;
+  font-size: inherit;
+  font-family: inherit;
+  transition: all .3s;
+  color: var(--color-primary-darker);
+}
+
+.submit-btn:hover {
+  background-image: linear-gradient(var(--color-primary), var(--color-primary-darker) 100%);
+  color: var(--color-btn-gray);
+  transform: scale(1.1);
+}

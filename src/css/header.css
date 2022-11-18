@@ -1,0 +1,41 @@
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 5rem;
+  padding: 1rem 5%;
+  background: linear-gradient(360deg, var(--color-whiteish), var(--color-dark-gray));
+}
+
+.page-header-logo {
+  height: 4.6rem;
+  display: block;
+  background-color: transparent;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  color: var(--color-primary-darker);
+}
+
+.nav-btn:first-child {
+  margin-right: 1rem;
+}
+
+.icon-btn-nav {
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.nav-btn:hover {
+  background-image: linear-gradient(var(--color-primary), var(--color-primary-darker) 100%);
+  color: var(--color-btn-gray);
+  transform: scale(1.1);
+}

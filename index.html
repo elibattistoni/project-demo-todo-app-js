@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="shortcut icon" href="src/img/favicon.png" type="image/x-icon" />
+
+    <link rel="stylesheet" href="src/css/base.css" />
+    <link rel="stylesheet" href="src/css/header.css" />
+    <link rel="stylesheet" href="src/css/main.css" />
+    <link rel="stylesheet" href="src/css/preview.css" />
+    <link rel="stylesheet" href="src/css/pagination.css" />
+    <link rel="stylesheet" href="src/css/details.css" />
+    <link rel="stylesheet" href="src/css/overlay.css" />
+    <link rel="stylesheet" href="src/css/form.css" />
+
+    <script defer type="module" src="src/js/controller.js"></script>
+
+    <title>TODO App</title>
+  </head>
+
+  <body>
+    <!-- main container with todos -->
+    <div class="container">
+      <header class="page-header">
+        <img src="src/img/logo.svg" alt="Logo" class="page-header-logo" />
+
+        <nav class="nav">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <button class="btn nav-btn">
+                <svg class="icon-btn-nav">
+                  <use href="src/img/icons.svg#icon-add"></use>
+                </svg>
+                <span>Add TODO</span>
+              </button>
+            </li>
+            <li class="nav-item">
+              <button class="btn nav-btn">
+                <svg class="icon-btn-nav">
+                  <use href="src/img/icons.svg#icon-trash"></use>
+                </svg>
+                <span>Reset</span>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <main class="todos-container">
+        <!-- section for displaying the list of todos -->
+        <section class="container-todos-preview">
+          <ul class="todos-list">
+            <li class="preview-todo-item item-active">
+              <a href="#" class="preview-link">
+                <h4 class="preview-todo-title">Study React</h4>
+
+                <div class="preview-todo-info">
+                  <div class="preview-todo-status">
+                    <svg class="icon-preview">
+                      <use href="src/img/icons.svg#icon-battery-empty"></use>
+                    </svg>
+                    <span>TO START</span>
+                  </div>
+
+                  <div class="preview-todo-deadline">
+                    <svg class="icon-preview">
+                      <use href="src/img/icons.svg#icon-calendar"></use>
+                    </svg>
+                    <span>31/12/22</span>
+                  </div>
+                </div>
+              </a>
+            </li>
+
+            <li class="preview-todo-item">
+              <a href="#" class="preview-link">
+                <h4 class="preview-todo-title">Study JavaScript</h4>
+                <div class="preview-todo-info">
+                  <div class="preview-todo-status">
+                    <svg class="icon-preview">
+                      <use href="src/img/icons.svg#icon-battery-progress"></use>
+                    </svg>
+                    <span>IN PROGRESS</span>
+                  </div>
+
+                  <div class="preview-todo-deadline">
+                    <svg class="icon-preview">
+                      <use href="src/img/icons.svg#icon-calendar"></use>
+                    </svg>
+                    <span>30/11/22</span>
+                  </div>
+                </div>
+              </a>
+            </li>
+
+            <li class="preview-todo-item">
+              <a href="#" class="preview-link">
+                <h4 class="preview-todo-title">Study HTML</h4>
+                <div class="preview-todo-info">
+                  <div class="preview-todo-status">
+                    <svg class="icon-preview">
+                      <use href="src/img/icons.svg#icon-trophy"></use>
+                    </svg>
+                    <span>DONE</span>
+                  </div>
+
+                  <div class="preview-todo-deadline">
+                    <svg class="icon-preview">
+                      <use href="src/img/icons.svg#icon-calendar"></use>
+                    </svg>
+                    <span>30/10/22</span>
+                  </div>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <div class="pagination">
+            <button class="btn btn-pagination">
+              <svg class="icon-page">
+                <use href="src/img/icons.svg#icon-arrow-left"></use>
+              </svg>
+              <span>Page 1</span>
+            </button>
+            <span class="current-page">2</span>
+            <button class="btn btn-pagination">
+              <span>Page 3</span>
+              <svg class="icon-page">
+                <use href="src/img/icons.svg#icon-arrow-right"></use>
+              </svg>
+            </button>
+          </div>
+        </section>
+
+        <!-- section for displaying the details of the todos -->
+        <section class="container-todo-details">
+          <!--  hide this when the user adds a todo -->
+          <!-- <section class="message">
+            <p>Start by adding a todo. Have fun!</p>
+            <svg>
+              <use href="src/img/icons.svg#icon-smile"></use>
+            </svg>
+          </section> -->
+
+          <!-- show this when click on todo in list-->
+          <section class="todo-details">
+            <header class="todo-header">
+              <h3 class="todo-title">Study React</h3>
+              <div class="todo-status">
+                <svg class="icon-details">
+                  <use href="src/img/icons.svg#icon-battery-empty"></use>
+                </svg>
+                <span>TO START</span>
+              </div>
+            </header>
+
+            <main>
+              <p class="todo-description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Eligendi iure qui repellat exercitationem veritatis aliquid ab
+                obcaecati maiores eaque autem, possimus amet tenetur quae animi
+                voluptatem et assumenda molestiae inventore?
+              </p>
+              <div class="todo-dates">
+                <div class="todo-created">
+                  <div class="todo-created-title">
+                    <svg class="icon-details">
+                      <use href="src/img/icons.svg#icon-calendar"></use>
+                    </svg>
+                    <span>Added</span>
+                  </div>
+                  <span class="todo-created-date">17/11/2022</span>
+                </div>
+                <div class="todo-deadline">
+                  <div class="todo-deadline-title">
+                    <svg class="icon-details">
+                      <use href="src/img/icons.svg#icon-calendar"></use>
+                    </svg>
+                    <span>Deadline</span>
+                  </div>
+                  <span class="todo-deadline-date">31/12/2022</span>
+                </div>
+              </div>
+            </main>
+
+            <footer class="edit-delete-todo">
+              <button class="btn btn-delete">
+                <svg class="icon-delete">
+                  <use href="src/img/icons.svg#icon-trash"></use>
+                </svg>
+              </button>
+              <button class="btn btn-edit">
+                <svg class="icon-edit">
+                  <use href="src/img/icons.svg#icon-edit"></use>
+                </svg>
+              </button>
+            </footer>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <!-- div for overlay -->
+    <div class="overlay hidden"></div>
+    <!-- div for add todo -->
+    <div class="add-todo-window">
+      <button class="btn-close-modal">&times;</button>
+      <form class="form-add-todo">
+        <h4>Add TODO</h4>
+        <ul class="form-list-fields">
+          <li class="form-field">
+            <label for="form-id-title">Title</label>
+            <input
+              type="text"
+              name="form-todo-title"
+              id="form-id-title"
+              required
+              placeholder="Title"
+            />
+          </li>
+          <li class="form-field">
+            <label for="form-id-descr">Description</label>
+            <textarea id="form-id-descr" name="form-todo-descr" placeholder="Description" rows="4" cols="40"></textarea>
+          </li>
+          <li class="form-field">
+            <label for="form-id-status">Status</label>
+            <select id="form-id-status" name="form-todo-status">
+              <option value="start">START</option>
+              <option value="in_progress">IN PROGRESS</option>
+              <option value="done">DONE</option>
+            </select>
+          </li>
+          <li class="form-field">
+            <label for="form-id-deadline">Deadline</label>
+            <input
+              type="date"
+              name="form-todo-deadline"
+              id="form-id-deadline"
+              required
+              min="2022-11-01" max="2024-12-31"
+            />
+          </li>
+        </ul>
+        <button type="Submit" class="btn submit-btn">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>

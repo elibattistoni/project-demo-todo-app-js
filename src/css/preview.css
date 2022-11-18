@@ -1,0 +1,73 @@
+.container-todos-preview {
+  flex: 1;
+  margin: 0.5rem;
+  height: 29rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.todos-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.preview-todo-item {
+  background-image: linear-gradient(var(--color-btn-gray), var(--color-light-gray) 150%);
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.5rem;
+  box-shadow: var(--box-shadow);
+  height: 4rem;
+  line-height: 1.3rem;
+  display: grid;
+}
+
+.preview-todo-item:hover {
+  background-image: linear-gradient(var(--color-btn-gray), var(--color-light-gray) 50%);
+}
+
+.preview-link {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.preview-todo-item h4, .preview-todo-item span {
+  margin: 0
+}
+
+.preview-todo-title {
+  margin: auto;
+  padding-top: 0.3rem;
+}
+
+.preview-todo-info {
+  font-size: 0.8rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.icon-preview {
+  height: 0.8rem;
+  width: 0.8rem;
+  margin-right: 0.2rem;
+}
+
+.preview-todo-deadline, .preview-todo-status {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.item-active {
+  background-image: linear-gradient(var(--color-primary), var(--color-primary-darker) 150%);
+  color: var(--color-btn-gray)
+}
+
+.item-active:hover {
+  background-image: linear-gradient(var(--color-primary), var(--color-primary-darker) 50%);
+}

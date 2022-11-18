@@ -1,0 +1,45 @@
+:root {
+  --color-primary: rgb(201, 126, 251);
+  --color-primary-alpha: rgba(201, 126, 251, 0.7);
+  --color-primary-darker: rgb(120, 76, 150);
+  --color-dark-gray: rgb(59, 59, 59);
+  --color-light-gray: rgb(184, 184, 184);
+  --color-btn-gray: rgb(233, 233, 237);
+  --color-whiteish: #fdfdfd;
+  --box-shadow: 5px 4px 10px -5px rgba(0, 0, 0, 0.75)
+}
+
+body {
+  font-family: 'Rubik', sans-serif;
+  background-color: var(--color-whiteish);
+  color: var(--color-dark-gray);
+  margin: 0;
+  font-size: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-dark-gray)
+}
+
+.container {
+  display: grid;
+  font-size: inherit;
+}
+
+.btn {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 4px;
+  padding: 0.7rem;
+  transition: all 0.3s;
+  box-shadow: var(--box-shadow);
+  background-image: linear-gradient(var(--color-btn-gray), var(--color-light-gray) 100%);
+  /* TODO transition when hover or clicked */
+}
