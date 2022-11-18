@@ -1,4 +1,4 @@
-.add-todo-window {
+.modal-window {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -85,4 +85,17 @@
   background-image: linear-gradient(var(--color-primary), var(--color-primary-darker) 100%);
   color: var(--color-btn-gray);
   transform: scale(1.1);
+}
+
+.added-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.image-message {
+  width: 25rem;
+  padding-top: 1rem
 }

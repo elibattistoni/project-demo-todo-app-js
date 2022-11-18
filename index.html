@@ -36,7 +36,7 @@
         <nav class="nav">
           <ul class="nav-list">
             <li class="nav-item">
-              <button class="btn nav-btn">
+              <button class="btn nav-btn js_btn_open">
                 <svg class="icon-btn-nav">
                   <use href="src/img/icons.svg#icon-add"></use>
                 </svg>
@@ -210,11 +210,11 @@
     </div>
 
     <!-- div for overlay -->
-    <div class="overlay hidden"></div>
+    <div class="overlay js_overlay hidden"></div>
     <!-- div for add todo -->
-    <div class="add-todo-window hidden">
-      <button class="btn-close-modal">&times;</button>
-      <form class="form-add-todo">
+    <div class="modal-window js_add_todo hidden">
+      <button class="btn-close-modal js_btn_close">&times;</button>
+      <form class="form-add-todo js_form">
         <h4>Add TODO</h4>
         <ul class="form-list-fields">
           <li class="form-field">
@@ -229,7 +229,13 @@
           </li>
           <li class="form-field">
             <label for="form-id-descr">Description</label>
-            <textarea id="form-id-descr" name="form-todo-descr" placeholder="Description" rows="4" cols="40"></textarea>
+            <textarea
+              id="form-id-descr"
+              name="form-todo-descr"
+              placeholder="Description"
+              rows="4"
+              cols="40"
+            ></textarea>
           </li>
           <li class="form-field">
             <label for="form-id-status">Status</label>
@@ -246,12 +252,21 @@
               name="form-todo-deadline"
               id="form-id-deadline"
               required
-              min="2022-11-01" max="2024-12-31"
+              min="2022-11-01"
+              max="2024-12-31"
             />
           </li>
         </ul>
         <button type="Submit" class="btn submit-btn">Submit</button>
       </form>
+    </div>
+
+    <div class="modal-window js_message hidden">
+      <button class="btn-close-modal js_btn_close">&times;</button>
+      <!-- <div class="added-message">
+        <h3>TODO added!</h3>
+        <img src="src/img/add.svg" alt="TODO added" class="image-message"></img>
+      </div> -->
     </div>
   </body>
 </html>

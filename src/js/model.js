@@ -12,6 +12,20 @@ export const state = {
   page: 1,
 };
 
+export const uploadTodo = function (data) {
+  const todaytime = new Date().toLocaleString();
+  const todo = {
+    title: data["form-todo-title"],
+    deadline: data["form-todo-descr"],
+    deadline: data["form-todo-status"],
+    deadline: data["form-todo-deadline"], //"2022-11-21"
+    created: todaytime,
+    id: todaytime.replace(/\W/g, ""),
+  };
+  state.todo_active = todo;
+  state.todos_all.push(todo);
+};
+
 /**
  * Function that persists in local storage all todos in state
  */
