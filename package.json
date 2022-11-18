@@ -1,0 +1,25 @@
+{
+  "name": "todo_app",
+  "version": "1.0.0",
+  "description": "App to create, retrieve, update and delete todos",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elisabattistoni1/todo_app.git"
+  },
+  "author": "Elisa Battistoni",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elisabattistoni1/todo_app/issues"
+  },
+  "homepage": "https://github.com/elisabattistoni1/todo_app#readme",
+  "devDependencies": {
+    "parcel": "^2.8.0"
+  },
+  "dependencies": {
+    "core-js": "^3.26.1"
+  }
+}
