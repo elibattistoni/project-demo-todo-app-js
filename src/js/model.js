@@ -36,8 +36,16 @@ const persistTodo = function () {
 /**
  * Function that deletes all the todos from the local storage
  */
-export const clearTodos = function () {
+export const clearAllTodos = function () {
   localStorage.clear("todos");
+};
+
+export const clearSingleTodo = function (todoId) {
+  const newTodos = state.todos_all.filter((t) => t.id !== todoId);
+  state.todos_all = newTodos;
+  state.todo_active = state_todos_all[0];
+  // localStorage.clear("todos");
+  localStorage.setItem("todos", JSON.stringify(state.todos_all));
 };
 
 const init = function () {

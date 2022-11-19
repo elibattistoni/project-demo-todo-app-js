@@ -3,7 +3,6 @@ import image from "url:../../img/add.svg";
 
 class AddTodoView {
   _parentElement = document.querySelector(".form-add-todo");
-
   _windowForm = document.querySelector(".modal-add");
   _windowMessage = document.querySelector(".modal-message");
   _overlay = document.querySelector(".overlay");

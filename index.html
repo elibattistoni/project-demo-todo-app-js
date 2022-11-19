@@ -44,7 +44,7 @@
               </button>
             </li>
             <li class="nav-item">
-              <button class="btn nav-btn">
+              <button class="btn nav-btn btn-reset">
                 <svg class="icon-btn-nav">
                   <use href="src/img/icons.svg#icon-trash"></use>
                 </svg>
@@ -147,31 +147,41 @@
           <section class="details-splash">
             <p>Start by adding a todo or clicking on an existing one.</p>
             <p>Have fun!</p>
-            <img src="src/img/splash.svg" alt="Welcome" class="image-splash">
+            <img src="src/img/splash.svg" alt="Welcome" class="image-splash" />
           </section>
 
           <!-- show this when click on todo in list-->
-          <section class="todo-details removed">
-          </section>
+          <section class="todo-details removed"></section>
         </section>
       </main>
     </div>
 
     <!-- div for overlay -->
     <div class="overlay hidden"></div>
+
     <!-- div for add todo -->
     <div class="modal-window modal-add hidden">
       <button class="btn-close-modal">&times;</button>
-      <form class="form-add-todo">
-      </form>
+      <form class="form-add-todo"></form>
     </div>
+
     <!-- message for success adding todo, success completing todo-->
     <div class="modal-window modal-message hidden">
       <button class="btn-close-modal">&times;</button>
     </div>
-    <!-- message for reset TODO -->
+
+    <!-- message for delete TODO -->
     <div class="modal-window modal-reset hidden">
       <button class="btn-close-modal">&times;</button>
+      <!-- <div class="reset-message">
+        <p>
+          Are you sure you want to delete ${all ? "all TODOs" : "this TODO"}?
+        </p>
+      </div>
+      <div class="buttons-deletion">
+        <button class="btn btn-delete-no">NO</button>
+        <button class="btn btn-delete-yes">YES</button>
+      </div> -->
     </div>
   </body>
 </html>

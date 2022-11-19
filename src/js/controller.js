@@ -5,6 +5,7 @@ import "core-js/stable";
 
 import addTodoView from "./views/addTodoView.js";
 import detailsTodoView from "./views/detailsTodoView.js";
+import deleteTodoView from "./views/deleteTodoView.js";
 import { MODAL_CLOSE_SEC } from "./config.js";
 
 // Render new TODO in container list todo (questo da fare in un altro controller)
@@ -38,12 +39,17 @@ const controlAddTodo = function (newTodo) {
   // }, 8000);
 };
 
-const controlReset = function () {
-  // resetTodosView.#
+const controlDelete = function (all) {
+  console.log(all);
+  console.log(model.state);
+  all
+    ? model.clearAllTodos()
+    : model.clearSingleTodo(model.state.todo_active.id);
 };
 
 const init = function () {
   addTodoView.addHandlerNewTodo(controlAddTodo);
+  deleteTodoView.addHandlerDelete(controlDelete);
 };
 
 init();
