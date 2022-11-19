@@ -4,12 +4,15 @@ import * as model from "./model.js";
 import "core-js/stable";
 
 import addTodoView from "./views/addTodoView.js";
+import detailsTodoView from "./views/detailsTodoView.js";
 import { MODAL_CLOSE_SEC } from "./config.js";
+
+// Render new TODO in container list todo (questo da fare in un altro controller)
 
 const controlAddTodo = function (newTodo) {
   // Upload new TODO
   model.uploadTodo(newTodo);
-  console.log(newTodo);
+  console.log(newTodo); //TODO REMOVE
 
   // Display success Message
   addTodoView.renderMessage();
@@ -18,11 +21,25 @@ const controlAddTodo = function (newTodo) {
   window.history.pushState(null, "", `#${model.state.todo_active.id}`);
 
   // Render new TODO in container details
-  // Render new TODO in container list todo
+  detailsTodoView.renderDetails(model.state.todo_active);
+  // console.log(model.state);
+
   // Close window message if not close yet
   setTimeout(function () {
     addTodoView.closeMessage();
   }, MODAL_CLOSE_SEC * 1000);
+
+  // just to try out the renderSplash
+  // setTimeout(() => {
+  //   detailsTodoView.renderSplash();
+  //   setTimeout(() => {
+  //     detailsTodoView.renderDetails(model.state.todos_all[3]);
+  //   }, 8000);
+  // }, 8000);
+};
+
+const controlReset = function () {
+  // resetTodosView.#
 };
 
 const init = function () {

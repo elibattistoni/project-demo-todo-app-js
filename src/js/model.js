@@ -13,17 +13,17 @@ export const state = {
 };
 
 export const uploadTodo = function (data) {
-  const todaytime = new Date().toLocaleString();
   const todo = {
     title: data["form-todo-title"],
-    deadline: data["form-todo-descr"],
-    deadline: data["form-todo-status"],
+    description: data["form-todo-descr"],
+    status: data["form-todo-status"].split("_").join(" ").toUpperCase(),
     deadline: data["form-todo-deadline"], //"2022-11-21"
-    created: todaytime,
-    id: todaytime.replace(/\W/g, ""),
+    created: new Date().toLocaleDateString(),
+    id: new Date().toLocaleString().replace(/\W/g, ""),
   };
   state.todo_active = todo;
   state.todos_all.push(todo);
+  persistTodo();
 };
 
 /**
@@ -39,3 +39,10 @@ const persistTodo = function () {
 export const clearTodos = function () {
   localStorage.clear("todos");
 };
+
+const init = function () {
+  const storage = localStorage.getItem("todos");
+  if (storage) state.todos_all = JSON.parse(storage);
+};
+
+init();

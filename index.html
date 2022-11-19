@@ -36,7 +36,7 @@
         <nav class="nav">
           <ul class="nav-list">
             <li class="nav-item">
-              <button class="btn nav-btn js_btn_open">
+              <button class="btn nav-btn btn-open">
                 <svg class="icon-btn-nav">
                   <use href="src/img/icons.svg#icon-add"></use>
                 </svg>
@@ -144,129 +144,34 @@
         <!-- section for displaying the details of the todos -->
         <section class="container-todo-details">
           <!--  hide this when the user adds a todo -->
-          <!-- <section class="message">
-            <p>Start by adding a todo. Have fun!</p>
-            <svg>
-              <use href="src/img/icons.svg#icon-smile"></use>
-            </svg>
-          </section> -->
+          <section class="details-splash">
+            <p>Start by adding a todo or clicking on an existing one.</p>
+            <p>Have fun!</p>
+            <img src="src/img/splash.svg" alt="Welcome" class="image-splash">
+          </section>
 
           <!-- show this when click on todo in list-->
-          <section class="todo-details">
-            <header class="todo-header">
-              <h3 class="todo-title">Study React</h3>
-              <div class="todo-status">
-                <svg class="icon-details">
-                  <use href="src/img/icons.svg#icon-battery-empty"></use>
-                </svg>
-                <span>TO START</span>
-              </div>
-            </header>
-
-            <main>
-              <p class="todo-description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Eligendi iure qui repellat exercitationem veritatis aliquid ab
-                obcaecati maiores eaque autem, possimus amet tenetur quae animi
-                voluptatem et assumenda molestiae inventore?
-              </p>
-              <div class="todo-dates">
-                <div class="todo-created">
-                  <div class="todo-created-title">
-                    <svg class="icon-details">
-                      <use href="src/img/icons.svg#icon-calendar"></use>
-                    </svg>
-                    <span>Added</span>
-                  </div>
-                  <span class="todo-created-date">17/11/2022</span>
-                </div>
-                <div class="todo-deadline">
-                  <div class="todo-deadline-title">
-                    <svg class="icon-details">
-                      <use href="src/img/icons.svg#icon-calendar"></use>
-                    </svg>
-                    <span>Deadline</span>
-                  </div>
-                  <span class="todo-deadline-date">31/12/2022</span>
-                </div>
-              </div>
-            </main>
-
-            <footer class="edit-delete-todo">
-              <button class="btn btn-delete">
-                <svg class="icon-delete">
-                  <use href="src/img/icons.svg#icon-trash"></use>
-                </svg>
-              </button>
-              <button class="btn btn-edit">
-                <svg class="icon-edit">
-                  <use href="src/img/icons.svg#icon-edit"></use>
-                </svg>
-              </button>
-            </footer>
+          <section class="todo-details removed">
           </section>
         </section>
       </main>
     </div>
 
     <!-- div for overlay -->
-    <div class="overlay js_overlay hidden"></div>
+    <div class="overlay hidden"></div>
     <!-- div for add todo -->
-    <div class="modal-window js_add_todo hidden">
-      <button class="btn-close-modal js_btn_close">&times;</button>
-      <form class="form-add-todo js_form">
-        <h4>Add TODO</h4>
-        <ul class="form-list-fields">
-          <li class="form-field">
-            <label for="form-id-title">Title</label>
-            <input
-              type="text"
-              name="form-todo-title"
-              id="form-id-title"
-              required
-              placeholder="Title"
-            />
-          </li>
-          <li class="form-field">
-            <label for="form-id-descr">Description</label>
-            <textarea
-              id="form-id-descr"
-              name="form-todo-descr"
-              placeholder="Description"
-              rows="4"
-              cols="40"
-            ></textarea>
-          </li>
-          <li class="form-field">
-            <label for="form-id-status">Status</label>
-            <select id="form-id-status" name="form-todo-status">
-              <option value="start">START</option>
-              <option value="in_progress">IN PROGRESS</option>
-              <option value="done">DONE</option>
-            </select>
-          </li>
-          <li class="form-field">
-            <label for="form-id-deadline">Deadline</label>
-            <input
-              type="date"
-              name="form-todo-deadline"
-              id="form-id-deadline"
-              required
-              min="2022-11-01"
-              max="2024-12-31"
-            />
-          </li>
-        </ul>
-        <button type="Submit" class="btn submit-btn">Submit</button>
+    <div class="modal-window modal-add hidden">
+      <button class="btn-close-modal">&times;</button>
+      <form class="form-add-todo">
       </form>
     </div>
-
-    <div class="modal-window js_message hidden">
-      <button class="btn-close-modal js_btn_close">&times;</button>
-      <!-- <div class="added-message">
-        <h3>TODO added!</h3>
-        <img src="src/img/add.svg" alt="TODO added" class="image-message"></img>
-      </div> -->
+    <!-- message for success adding todo, success completing todo-->
+    <div class="modal-window modal-message hidden">
+      <button class="btn-close-modal">&times;</button>
+    </div>
+    <!-- message for reset TODO -->
+    <div class="modal-window modal-reset hidden">
+      <button class="btn-close-modal">&times;</button>
     </div>
   </body>
 </html>

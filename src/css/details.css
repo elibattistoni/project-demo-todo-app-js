@@ -4,20 +4,20 @@
   height: 29rem;
 }
 
-.message {
+.details-splash {
   background-color: var(--color-btn-gray);
   border-radius: 5px;
   box-shadow: var(--box-shadow);
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 89.6%
 }
 
-.message svg {
-  height: 1.5rem;
-  width: 1.5rem;
-  margin-left: 0.5rem;
+.image-splash {
+  height: 12rem;
+  padding-top: 2rem
 }
 
 .todo-details {
@@ -29,6 +29,10 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.removed {
+  display: none
 }
 
 .todo-header {

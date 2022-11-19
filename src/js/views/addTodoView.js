@@ -2,41 +2,126 @@
 import image from "url:../../img/add.svg";
 
 class AddTodoView {
-  _parentElement = document.querySelector(".js_form");
-  _message = `
-  <div class="added-message">
-    <h3>TODO added!</h3>
-    <img src="${image}" alt="TODO added" class="image-message"></img>
-  </div>`;
+  _parentElement = document.querySelector(".form-add-todo");
 
-  _windowForm = document.querySelector(".js_add_todo");
-  _windowMessage = document.querySelector(".js_message");
-  _overlay = document.querySelector(".js_overlay");
-  _btnOpen = document.querySelector(".js_btn_open");
-  _btnClose = document.querySelector(".js_btn_close");
+  _windowForm = document.querySelector(".modal-add");
+  _windowMessage = document.querySelector(".modal-message");
+  _overlay = document.querySelector(".overlay");
+  _btnOpen = document.querySelector(".btn-open");
+  _btnClose = document.querySelector(".btn-close-modal");
 
   constructor() {
     this._addHandlerShowForm();
-    this._addHandlerHideForm();
+    this._addHandlerCloseForm();
+  }
+
+  _clear(element) {
+    element.innerHTML = "";
+  }
+
+  _generateMarkupForm() {
+    this._clear(this._parentElement);
+    const date = new Date();
+    const today = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
+    return `
+    <h4>Add TODO</h4>
+    <ul class="form-list-fields">
+      <li class="form-field">
+        <label for="form-id-title">Title</label>
+        <input
+          type="text"
+          name="form-todo-title"
+          id="form-id-title"
+          required
+          placeholder="Title"
+          value="TODO Title"
+        />
+      </li>
+      <li class="form-field">
+        <label for="form-id-descr">Description</label>
+        <textarea
+          id="form-id-descr"
+          name="form-todo-descr"
+          placeholder="Description"
+          rows="4"
+          cols="40"
+        >TODO Description</textarea>
+      </li>
+      <li class="form-field">
+        <label for="form-id-status">Status</label>
+        <select id="form-id-status" name="form-todo-status">
+          <option value="start">START</option>
+          <option value="in_progress">IN PROGRESS</option>
+          <option value="done">DONE</option>
+        </select>
+      </li>
+      <li class="form-field">
+        <label for="form-id-deadline">Deadline</label>
+        <input
+          type="date"
+          name="form-todo-deadline"
+          id="form-id-deadline"
+          required
+          min="${today}"
+          max="2024-12-31"
+          value=${today}
+        />
+      </li>
+    </ul>
+    <button type="Submit" class="btn submit-btn">Submit</button>
+    `;
+  }
+
+  _generateMarkupMessage() {
+    this._clear(this._windowMessage);
+    return `
+    <div class="added-message">
+      <h3>TODO added!</h3>
+      <img src="${image}" alt="TODO added" class="image-message"></img>
+    </div>`;
+  }
+
+  _renderForm() {
+    this._parentElement.insertAdjacentHTML(
+      "afterbegin",
+      this._generateMarkupForm()
+    );
   }
 
   _openForm() {
+    this._renderForm();
     this._windowForm.classList.remove("hidden");
     this._overlay.classList.remove("hidden");
   }
 
   _closeForm() {
     this._windowForm.classList.add("hidden");
-    this._parentElement.reset();
+    this._parentElement.reset(); // empty fields
+  }
+
+  _closeOverlay() {
+    this._overlay.classList.add("hidden");
+  }
+
+  _closeFormManually() {
+    this._closeForm();
+    this._closeOverlay();
+  }
+
+  _openMessage() {
+    this._windowMessage.classList.remove("hidden");
   }
 
   _addHandlerShowForm() {
     this._btnOpen.addEventListener("click", this._openForm.bind(this));
   }
 
-  _addHandlerHideForm() {
-    this._btnClose.addEventListener("click", this._closeForm.bind(this));
-    this._overlay.addEventListener("click", this._closeForm.bind(this));
+  _addHandlerCloseForm() {
+    this._btnClose.addEventListener(
+      "click",
+      this._closeFormManually.bind(this)
+    );
+    this._overlay.addEventListener("click", this._closeFormManually.bind(this));
   }
 
   addHandlerNewTodo(handler) {
@@ -50,13 +135,16 @@ class AddTodoView {
 
   renderMessage() {
     this._closeForm();
-    this._windowMessage.classList.remove("hidden");
-    this._windowMessage.insertAdjacentHTML("afterbegin", this._message);
+    this._openMessage();
+    this._windowMessage.insertAdjacentHTML(
+      "afterbegin",
+      this._generateMarkupMessage()
+    );
   }
 
   closeMessage() {
     this._windowMessage.classList.add("hidden");
-    this._overlay.classList.add("hidden");
+    this._closeOverlay();
   }
 }
 
