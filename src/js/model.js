@@ -48,7 +48,15 @@ export const setLastActiveTodo = function () {
   return lastId;
 };
 
-export const updateActiveTodo = function (updatedTodo) {
+export const updateActiveTodo = function (updatedData) {
+  const updatedTodo = {
+    title: updatedData["form-todo-title"],
+    description: updatedData["form-todo-descr"],
+    status: updatedData["form-todo-status"].split("_").join(" ").toUpperCase(),
+    deadline: updatedData["form-todo-deadline"],
+    created: updatedData["created"],
+    id: updatedData["id"],
+  };
   // set current active todo to the updated todo
   state.todoActive = updatedTodo;
   // remove the todo with the same id from the list

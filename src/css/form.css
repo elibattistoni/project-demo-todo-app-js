@@ -25,7 +25,7 @@
   background: transparent;
 }
 
-.form-add-todo {
+.form-add-todo, .form-edit-todo {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -94,10 +94,13 @@
   align-items: center;
 }
 
-
 .image-message {
   width: 25rem;
   padding-top: 1rem
+}
+
+.image-completed {
+  height: 15rem;
 }
 
 .modal-reset {

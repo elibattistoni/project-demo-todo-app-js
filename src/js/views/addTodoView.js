@@ -1,7 +1,7 @@
 // View that renders the form for adding and updating a todo
 import image from "url:../../img/add.svg";
 
-class AddEditTodoView {
+class AddTodoView {
   _parentElement = document.querySelector(".form-add-todo");
   _windowForm = document.querySelector(".modal-add");
   _windowMessage = document.querySelector(".modal-message");
@@ -75,7 +75,7 @@ class AddEditTodoView {
     this._clear(this._windowMessage);
     return `
     <div class="added-message">
-      <h3>TODO added!</h3>
+      <h3>TODO added successfully!</h3>
       <img src="${image}" alt="TODO added" class="image-message"></img>
     </div>`;
   }
@@ -145,16 +145,6 @@ class AddEditTodoView {
     this._windowMessage.classList.add("hidden");
     this._closeOverlay();
   }
-
-  addHandlerEditTodo(handler) {
-    /// TODO EDIT THIS
-    //   this._parentElement.addEventListener("submit", function (e) {
-    //     e.preventDefault();
-    //     const dataArr = [...new FormData(this)];
-    //     const data = Object.fromEntries(dataArr);
-    //     handler(data);
-    //   });
-  }
 }
 
-export default new AddEditTodoView();
+export default new AddTodoView();
