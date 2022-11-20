@@ -4,9 +4,6 @@ class DeleteTodoView {
   _containerDetails = document.querySelector(".container-todo-details");
   _overlay = document.querySelector(".overlay");
   _clickOnAll;
-  // _btnConfirmDelete = document.querySelector(".btn-delete-yes");
-  // _btnCancelDelete = document.querySelector(".btn-delete-no");
-  // _btnClose = document.querySelector(".btn-close-modal");
 
   constructor() {
     this._addHandlerShowFormAll();
@@ -58,23 +55,15 @@ class DeleteTodoView {
   }
 
   _addHandlerShowFormSingle() {
-    this._containerDetails.addEventListener("click", function (e) {
+    this._containerDetails.addEventListener("click", (e) => {
       const btn = e.target.closest(".btn-delete");
       if (!btn) return;
       this._clickOnAll = false;
-      console.log(btn);
+      this._openForm();
     });
-    // if (!this._windowForm.classList.contains("hidden")) {
-    //   this._btnOpenDeleteSingle.addEventListener(
-    //     "click",
-    //     this._openForm.bind(this)
-    //   );
-    // }
   }
 
   _addHandlerCloseForm() {
-    /// THIS IS OK!!!!!!!! =) =) =)
-    // close on click on overlay
     this._overlay.addEventListener("click", this._closeForm.bind(this));
     this._windowForm.addEventListener("click", (e) => {
       const btn1 = e.target.closest(".btn-close-modal");
@@ -85,8 +74,10 @@ class DeleteTodoView {
   }
 
   addHandlerDelete(handler) {
-    this._windowForm.addEventListener("submit", function (e) {
-      e.preventDefault();
+    this._windowForm.addEventListener("click", (e) => {
+      // e.preventDefault()
+      const btn = e.target.closest(".btn-delete-yes");
+      if (!btn) return;
       this._closeForm();
       handler(this._clickOnAll);
     });

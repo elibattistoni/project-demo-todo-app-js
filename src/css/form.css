@@ -117,11 +117,11 @@
   align-items: flex-end;
 }
 
-.buttons-reset button {
+.buttons-deletion button {
   width: 4rem;
 }
 
-.buttons-reset button:hover {
+.buttons-deletion button:hover {
   background-image: linear-gradient(var(--color-primary), var(--color-primary-darker) 100%);
   color: var(--color-btn-gray);
   transform: scale(1.1);
