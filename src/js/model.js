@@ -12,6 +12,17 @@ export const state = {
   page: 1,
 };
 
+/**
+ * Function that persists in local storage all todos in state
+ */
+const persistTodo = function () {
+  localStorage.setItem("todos", JSON.stringify(state.todos));
+};
+
+/**
+ *
+ * @param {*} data
+ */
 export const uploadTodo = function (data) {
   const todo = {
     title: data["form-todo-title"],
@@ -26,10 +37,27 @@ export const uploadTodo = function (data) {
   persistTodo();
 };
 
-/**
- * Function that persists in local storage all todos in state
- */
-const persistTodo = function () {
+export const setActiveTodo = function (todoId) {
+  // if (state.todos.length === 0) return;
+  state.todoActive = state.todos.filter((t) => t.id === todoId)[0];
+};
+
+export const setLastActiveTodo = function () {
+  if (state.todos.length === 0) return;
+  const lastId = state.todos.at(-1).id;
+  return lastId;
+};
+
+export const updateActiveTodo = function (updatedTodo) {
+  // set current active todo to the updated todo
+  state.todoActive = updatedTodo;
+  // remove the todo with the same id from the list
+  const newTodos = state.todos.filter((t) => t.id !== updatedTodo.id);
+  // add the updated todo
+  newTodos.push(updatedTodo);
+  // save to state
+  state.todos = newTodos;
+  // overwrite the todos in local storage
   localStorage.setItem("todos", JSON.stringify(state.todos));
 };
 

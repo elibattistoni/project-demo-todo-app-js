@@ -6,7 +6,7 @@ class DetailsTodoView {
   _data;
 
   addHandlerRender(handler) {
-    ["hashchange", "load"].forEeach((ev) =>
+    ["hashchange", "load"].forEach((ev) =>
       window.addEventListener(ev, handler)
     );
   }

@@ -1,7 +1,7 @@
 // View that renders the form for adding and updating a todo
 import image from "url:../../img/add.svg";
 
-class AddTodoView {
+class AddEditTodoView {
   _parentElement = document.querySelector(".form-add-todo");
   _windowForm = document.querySelector(".modal-add");
   _windowMessage = document.querySelector(".modal-message");
@@ -61,7 +61,7 @@ class AddTodoView {
           name="form-todo-deadline"
           id="form-id-deadline"
           required
-          min="${today}"
+          min=${today}
           max="2024-12-31"
           value=${today}
         />
@@ -145,6 +145,16 @@ class AddTodoView {
     this._windowMessage.classList.add("hidden");
     this._closeOverlay();
   }
+
+  addHandlerEditTodo(handler) {
+    /// TODO EDIT THIS
+    //   this._parentElement.addEventListener("submit", function (e) {
+    //     e.preventDefault();
+    //     const dataArr = [...new FormData(this)];
+    //     const data = Object.fromEntries(dataArr);
+    //     handler(data);
+    //   });
+  }
 }
 
-export default new AddTodoView();
+export default new AddEditTodoView();

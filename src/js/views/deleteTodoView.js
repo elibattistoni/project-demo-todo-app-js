@@ -79,6 +79,8 @@ class DeleteTodoView {
       const btn = e.target.closest(".btn-delete-yes");
       if (!btn) return;
       this._closeForm();
+      // remove hash
+      window.history.pushState(null, "", "/");
       handler(this._clickOnAll);
     });
   }
