@@ -75,6 +75,7 @@ class TodosListView {
     );
     newElements.forEach((newEl, i) => {
       const curEl = currentElements[i];
+      if (!curEl) return;
       // update change text
       if (
         !newEl.isEqualNode(curEl) &&
