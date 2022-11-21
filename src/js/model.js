@@ -5,11 +5,12 @@ import { RES_PER_PAGE } from "./config";
  * State of the application
  */
 export const state = {
-  todoActive: {},
+  activeTodo: {},
   todos: [],
   todosOnPage: [],
   resultsPerPage: RES_PER_PAGE,
   page: 1,
+  totPages: 1,
 };
 
 /**
@@ -19,6 +20,22 @@ const persistTodo = function () {
   localStorage.setItem("todos", JSON.stringify(state.todos));
 };
 
+export const getPageTodo = function (todoId) {
+  const todosByPage = [];
+  for (let i = 0; i < state.todos.length; i += state.resultsPerPage) {
+    todosByPage.push(state.todos.slice(i, i + state.resultsPerPage));
+  }
+  // console.log("todosByPage", todosByPage);
+  const todoPresence = todosByPage.map((tt) =>
+    tt.findIndex((t) => t.id === todoId)
+  );
+  // console.log("todoPresence", todoPresence);
+  const max = Math.max(...todoPresence);
+  // console.log("max", max);
+  const index = todoPresence.indexOf(max);
+  // console.log("index", index);
+  return index + 1;
+};
 /**
  *
  * @param {*} data
@@ -32,14 +49,15 @@ export const uploadTodo = function (data) {
     created: new Date().toLocaleDateString(),
     id: new Date().toLocaleString().replace(/\W/g, ""),
   };
-  state.todoActive = todo;
+  state.activeTodo = todo;
   state.todos.push(todo);
+  state.totPages = Math.ceil(state.todos.length / state.resultsPerPage);
   persistTodo();
 };
 
 export const setActiveTodo = function (todoId) {
   // if (state.todos.length === 0) return;
-  state.todoActive = state.todos.filter((t) => t.id === todoId)[0];
+  state.activeTodo = state.todos.filter((t) => t.id === todoId)[0];
 };
 
 export const setLastActiveTodo = function () {
@@ -58,7 +76,7 @@ export const updateActiveTodo = function (updatedData) {
     id: updatedData["id"],
   };
   // set current active todo to the updated todo
-  state.todoActive = updatedTodo;
+  state.activeTodo = updatedTodo;
   // remove the todo with the same id from the list
   const newTodos = state.todos.filter((t) => t.id !== updatedTodo.id);
   // add the updated todo
@@ -74,7 +92,7 @@ export const updateActiveTodo = function (updatedData) {
  */
 export const clearAllTodos = function () {
   localStorage.clear("todos");
-  state.todoActive = {};
+  state.activeTodo = {};
   state.todos = [];
   state.todosOnPage = [];
   state.resultsPerPage = RES_PER_PAGE;
@@ -84,7 +102,7 @@ export const clearAllTodos = function () {
 export const clearSingleTodo = function (todoId) {
   const newTodos = state.todos.filter((t) => t.id !== todoId);
   state.todos = newTodos;
-  state.todoActive = state.todos[state.todos.length - 1];
+  state.activeTodo = state.todos[state.todos.length - 1];
   localStorage.setItem("todos", JSON.stringify(state.todos));
 };
 

@@ -4,6 +4,10 @@ import icons from "url:../../img/icons.svg";
 class TodosListView {
   _parentElement = document.querySelector(".todos-list");
 
+  addHandlerRender(handler) {
+    window.addEventListener("load", handler);
+  }
+
   _clear(element) {
     element.innerHTML = "";
   }

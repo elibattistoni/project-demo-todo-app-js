@@ -6,9 +6,9 @@ class DetailsTodoView {
   _data;
 
   addHandlerRender(handler) {
-    ["hashchange", "load"].forEach((ev) =>
-      window.addEventListener(ev, handler)
-    );
+    ["hashchange", "load"].forEach((ev) => {
+      window.addEventListener(ev, handler);
+    });
   }
 
   _splashWindow = document.querySelector(".details-splash");

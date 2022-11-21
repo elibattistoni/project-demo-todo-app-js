@@ -9,6 +9,7 @@ import editTodoView from "./views/editTodoView.js";
 import detailsTodoView from "./views/detailsTodoView.js";
 import deleteTodoView from "./views/deleteTodoView.js";
 import todosListView from "./views/todosListView.js";
+import paginationView from "./views/paginationView.js";
 
 /// THIS IS OKKKKKK
 const controlRenderDetails = function () {
@@ -16,13 +17,10 @@ const controlRenderDetails = function () {
   if (!id) id = model.setLastActiveTodo();
   if (id) {
     model.setActiveTodo(id);
-    detailsTodoView.renderDetails(model.state.todoActive);
+    detailsTodoView.renderDetails(model.state.activeTodo);
   } else {
     detailsTodoView.renderSplash();
   }
-
-  // TODO CHANGE WITH UPDATE
-  // console.log(model.getTodosPage()); // TODO REMOVE
   todosListView.updateList(model.getTodosPage());
 };
 
@@ -34,22 +32,25 @@ const controlAddTodo = function (data) {
   // Display success Message
   addTodoView.renderMessage();
 
+  const id = model.state.activeTodo.id;
+
   // Change ID in URL
-  window.history.pushState(null, "", `#${model.state.todoActive.id}`);
+  window.history.pushState(null, "", `#${id}`);
+
+  console.log(model.state);
+  console.log("page:", model.getPageTodo(id));
 
   // Render new TODO in container details
-  detailsTodoView.renderDetails(model.state.todoActive);
-  // console.log(model.state);
+  detailsTodoView.renderDetails(model.state.activeTodo);
 
-  todosListView.renderList(model.getTodosPage());
+  todosListView.renderList(model.getTodosPage(model.getPageTodo(id)));
+
+  paginationView.renderPageButtons(model.state);
 
   // Close window message if not close yet
   setTimeout(function () {
     addTodoView.closeMessage();
   }, MODAL_CLOSE_SEC * 1000);
-
-  // console.log(data);
-  // console.log(model.state);
 
   // just to try out the renderSplash
   // setTimeout(() => {
@@ -64,16 +65,18 @@ const controlAddTodo = function (data) {
 const controlDelete = function (all) {
   all
     ? model.clearAllTodos()
-    : model.clearSingleTodo(model.state.todoActive.id);
+    : model.clearSingleTodo(model.state.activeTodo.id);
 
   if (all) {
     detailsTodoView.renderSplash();
+    paginationView.removeRenderPageButtons();
   } else {
     if (model.state.todos.length > 0) {
-      window.history.pushState(null, "", `#${model.state.todoActive.id}`);
-      detailsTodoView.renderDetails(model.state.todoActive);
+      window.history.pushState(null, "", `#${model.state.activeTodo.id}`);
+      detailsTodoView.renderDetails(model.state.activeTodo);
     } else {
       detailsTodoView.renderSplash();
+      paginationView.removeRenderPageButtons();
     }
   }
   todosListView.renderList(model.getTodosPage());
@@ -87,9 +90,9 @@ const controlEditTodo = function (updatedData) {
 
   // no need to change url because it is the same
   //render details
-  detailsTodoView.renderDetails(model.state.todoActive);
+  detailsTodoView.renderDetails(model.state.activeTodo);
 
-  todosListView.renderList(model.getTodosPage());
+  todosListView.updateList(model.getTodosPage());
 
   // Close window message if not close yet
   setTimeout(function () {
@@ -97,7 +100,21 @@ const controlEditTodo = function (updatedData) {
   }, MODAL_CLOSE_SEC * 1000);
 };
 
+const controlRenderList = function () {
+  todosListView.renderList(model.getTodosPage());
+};
+
+const controlPagination = function (goToPage) {
+  todosListView.renderList(model.getTodosPage(goToPage));
+  paginationView.renderPageButtons(model.state);
+};
+
+const controlRenderPagination = function () {
+  paginationView.renderPageButtons(model.state);
+};
+
 const init = function () {
+  todosListView.addHandlerRender(controlRenderList);
   ////// THIS IS OKKKKKKKK
   detailsTodoView.addHandlerRender(controlRenderDetails);
   /// THIS IS OKKKKKK
@@ -107,6 +124,8 @@ const init = function () {
   /// THIS IS OKKKKKK
   deleteTodoView.addHandlerDelete(controlDelete);
   ////
+  paginationView.addHandlerRender(controlRenderPagination);
+  paginationView.addHandlerClick(controlPagination);
 };
 
 init();
