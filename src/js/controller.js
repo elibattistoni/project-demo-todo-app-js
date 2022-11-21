@@ -3,11 +3,12 @@
 import * as model from "./model.js";
 import "core-js/stable";
 
+import { MODAL_CLOSE_SEC } from "./config.js";
 import addTodoView from "./views/addTodoView.js";
 import editTodoView from "./views/editTodoView.js";
 import detailsTodoView from "./views/detailsTodoView.js";
 import deleteTodoView from "./views/deleteTodoView.js";
-import { MODAL_CLOSE_SEC } from "./config.js";
+import todosListView from "./views/todosListView.js";
 
 /// THIS IS OKKKKKK
 const controlRenderDetails = function () {
@@ -19,6 +20,8 @@ const controlRenderDetails = function () {
   } else {
     detailsTodoView.renderSplash();
   }
+  console.log(model.getTodosPage()); // TODO REMOVE
+  todosListView.renderList(model.getTodosPage());
 };
 
 /// THIS IS OKKKKKK
@@ -35,6 +38,8 @@ const controlAddTodo = function (data) {
   // Render new TODO in container details
   detailsTodoView.renderDetails(model.state.todoActive);
   // console.log(model.state);
+
+  todosListView.renderList(model.getTodosPage());
 
   // Close window message if not close yet
   setTimeout(function () {
@@ -69,6 +74,7 @@ const controlDelete = function (all) {
       detailsTodoView.renderSplash();
     }
   }
+  todosListView.renderList(model.getTodosPage());
 };
 
 const controlEditTodo = function (updatedData) {
@@ -80,21 +86,29 @@ const controlEditTodo = function (updatedData) {
   //render details
   detailsTodoView.renderDetails(model.state.todoActive);
 
+  todosListView.renderList(model.getTodosPage());
+
   // Close window message if not close yet
   setTimeout(function () {
     addTodoView.closeMessage();
   }, MODAL_CLOSE_SEC * 1000);
 };
 
+// const controlTodosList = function () {
+//   todosListView.renderList(model.getTodosPage());
+// };
+
 const init = function () {
   ////// THIS IS OKKKKKKKK
   detailsTodoView.addHandlerRender(controlRenderDetails);
   /// THIS IS OKKKKKK
   addTodoView.addHandlerNewTodo(controlAddTodo);
-  //
+  /// THIS IS OKKKKK
   editTodoView.addHandlerEditTodo(controlEditTodo);
   /// THIS IS OKKKKKK
   deleteTodoView.addHandlerDelete(controlDelete);
+  ////
+  // todosListView.addHandlerRender(controlTodosList);
 };
 
 init();

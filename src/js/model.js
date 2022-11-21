@@ -88,6 +88,14 @@ export const clearSingleTodo = function (todoId) {
   localStorage.setItem("todos", JSON.stringify(state.todos));
 };
 
+export const getTodosPage = function (page = state.page) {
+  state.page = page;
+  const start = (page - 1) * state.resultsPerPage;
+  const end = page * state.resultsPerPage;
+  state.todosOnPage = [...state.todos];
+  return state.todosOnPage.slice(start, end);
+};
+
 const init = function () {
   const storage = localStorage.getItem("todos");
   if (storage) state.todos = JSON.parse(storage);

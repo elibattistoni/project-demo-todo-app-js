@@ -19,19 +19,19 @@ class DetailsTodoView {
   }
 
   _generateMarkup() {
-    let status_icon;
+    let statusIcon;
     switch (this._data.status) {
       case "START":
-        status_icon = "icon-battery-empty";
+        statusIcon = "icon-battery-empty";
         break;
       case "IN PROGRESS":
-        status_icon = "icon-battery-progress";
+        statusIcon = "icon-battery-progress";
         break;
       case "DONE":
-        status_icon = "icon-trophy";
+        statusIcon = "icon-trophy";
         break;
       default:
-        status_icon = "";
+        statusIcon = "";
         break;
     }
     return `
@@ -39,7 +39,7 @@ class DetailsTodoView {
         <h3 class="todo-title">${this._data.title}</h3>
         <div class="todo-status">
           <svg class="icon-details">
-            <use href="${icons}#${status_icon}"></use>
+            <use href="${icons}#${statusIcon}"></use>
           </svg>
           <span>${this._data.status}</span>
         </div>
