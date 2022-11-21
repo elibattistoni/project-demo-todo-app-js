@@ -50,8 +50,10 @@ class DeleteTodoView {
   }
 
   _addHandlerShowFormAll() {
-    this._clickOnAll = true;
-    this._btnOpenDeleteAll.addEventListener("click", this._openForm.bind(this));
+    this._btnOpenDeleteAll.addEventListener("click", (e) => {
+      this._clickOnAll = true;
+      this._openForm();
+    });
   }
 
   _addHandlerShowFormSingle() {

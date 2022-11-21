@@ -20,7 +20,7 @@ const controlRenderDetails = function () {
   } else {
     detailsTodoView.renderSplash();
   }
-  console.log(model.getTodosPage()); // TODO REMOVE
+  // console.log(model.getTodosPage()); // TODO REMOVE
   todosListView.renderList(model.getTodosPage());
 };
 
