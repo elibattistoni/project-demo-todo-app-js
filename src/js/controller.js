@@ -20,8 +20,10 @@ const controlRenderDetails = function () {
   } else {
     detailsTodoView.renderSplash();
   }
+
+  // TODO CHANGE WITH UPDATE
   // console.log(model.getTodosPage()); // TODO REMOVE
-  todosListView.renderList(model.getTodosPage());
+  todosListView.updateList(model.getTodosPage());
 };
 
 /// THIS IS OKKKKKK
@@ -77,6 +79,7 @@ const controlDelete = function (all) {
   todosListView.renderList(model.getTodosPage());
 };
 
+/// THIS IS OKKKK
 const controlEditTodo = function (updatedData) {
   model.updateActiveTodo(updatedData);
 
@@ -94,10 +97,6 @@ const controlEditTodo = function (updatedData) {
   }, MODAL_CLOSE_SEC * 1000);
 };
 
-// const controlTodosList = function () {
-//   todosListView.renderList(model.getTodosPage());
-// };
-
 const init = function () {
   ////// THIS IS OKKKKKKKK
   detailsTodoView.addHandlerRender(controlRenderDetails);
@@ -108,7 +107,6 @@ const init = function () {
   /// THIS IS OKKKKKK
   deleteTodoView.addHandlerDelete(controlDelete);
   ////
-  // todosListView.addHandlerRender(controlTodosList);
 };
 
 init();

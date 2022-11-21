@@ -2,7 +2,7 @@
 import icons from "url:../../img/icons.svg";
 
 class TodosListView {
-  _parentElement;
+  _parentElement = document.querySelector(".todos-list");
 
   _clear(element) {
     element.innerHTML = "";
@@ -59,11 +59,36 @@ class TodosListView {
   }
 
   renderList(dataAllTodos) {
-    this._parentElement = document.querySelector(".todos-list");
     this._data = dataAllTodos;
     const markup = this._generateMarkupListTodo();
     this._clear(this._parentElement);
     this._parentElement.insertAdjacentHTML("afterbegin", markup);
+  }
+
+  updateList(dataAllTodos) {
+    this._data = dataAllTodos;
+    const newMarkup = this._generateMarkupListTodo();
+    const newDOM = document.createRange().createContextualFragment(newMarkup);
+    const newElements = Array.from(newDOM.querySelectorAll("*"));
+    const currentElements = Array.from(
+      this._parentElement.querySelectorAll("*")
+    );
+    newElements.forEach((newEl, i) => {
+      const curEl = currentElements[i];
+      // update change text
+      if (
+        !newEl.isEqualNode(curEl) &&
+        newEl.firstChild?.nodeValue.trim() !== ""
+      ) {
+        curEl.textContent = newEl.textContent;
+      }
+      // update changed attribute
+      if (!newEl.isEqualNode(curEl)) {
+        Array.from(newEl.attributes).forEach((attr) =>
+          curEl.setAttribute(attr.name, attr.value)
+        );
+      }
+    });
   }
 }
 
