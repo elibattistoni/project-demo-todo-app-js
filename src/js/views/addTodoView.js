@@ -21,7 +21,9 @@ class AddTodoView {
   _generateMarkupForm() {
     this._clear(this._parentElement);
     const date = new Date();
-    const today = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
+    const today = `${date.getFullYear()}-${
+      date.getMonth() + 1
+    }-${date.getDate()}`;
     return `
     <h4>Add TODO</h4>
     <ul class="form-list-fields">
@@ -34,6 +36,7 @@ class AddTodoView {
           required
           placeholder="Title"
           value="TODO Title"
+          class="input-title"
         />
       </li>
       <li class="form-field">
@@ -85,6 +88,8 @@ class AddTodoView {
       "afterbegin",
       this._generateMarkupForm()
     );
+    this._inputTitle = document.querySelector(".input-title");
+    this._inputTitle.focus();
   }
 
   _openForm() {

@@ -37,9 +37,6 @@ const controlAddTodo = function (data) {
   // Change ID in URL
   window.history.pushState(null, "", `#${id}`);
 
-  console.log(model.state);
-  console.log("page:", model.getPageTodo(id));
-
   // Render new TODO in container details
   detailsTodoView.renderDetails(model.state.activeTodo);
 

@@ -30,7 +30,9 @@ class TodosListView {
         break;
     }
     return `
-    <li class="preview-todo-item ${dataTodo.id === id ? "item-active" : ""}">
+    <li class="preview-todo-item ${
+      dataTodo.id === id ? "item-active" : ""
+    }" data-order='["${dataTodo.counterId}","${dataTodo.deadline}"]'>
       <a href="#${dataTodo.id}" class="preview-link">
         <h4 class="preview-todo-title">${dataTodo.title}</h4>
         <div class="preview-todo-info">
@@ -95,6 +97,30 @@ class TodosListView {
       }
     });
   }
+
+  // sortList(by = "created") {
+  //   const elements = this._parentElement.querySelectorAll(".preview-todo-item");
+  //   let orderedElements = Array.from(elements);
+  //   if (by === "deadline") {
+  //     orderedElements.sort((a, b) => {
+  //       const dateA = new Date(JSON.parse(a.dataset.order)[1]);
+  //       const dateB = new Date(JSON.parse(b.dataset.order)[1]);
+  //       return dateB - dateA;
+  //     });
+  //   }
+  //   if (by === "created") {
+  //     orderedElements.sort((a, b) => {
+  //       const counterA = new Date(JSON.parse(a.dataset.order)[0]);
+  //       const counterB = new Date(JSON.parse(b.dataset.order)[0]);
+  //       return counterB - counterA;
+  //     });
+  //   }
+  //   // Doesn't work
+  //   orderedElements.forEach((e) => {
+  //     console.log(e);
+  //     this._parentElement.insertAdjacentElement("afterbegin", e);
+  //   });
+  // }
 }
 
 export default new TodosListView();

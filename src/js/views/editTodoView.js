@@ -20,7 +20,9 @@ class EditTodoView {
   _generateMarkupForm() {
     this._clear(this._parentElement);
     const date = new Date();
-    const today = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
+    const today = `${date.getFullYear()}-${
+      date.getMonth() + 1
+    }-${date.getDate()}`;
     let statusMarkup;
     switch (this._data?.status ?? "START") {
       case "START":
@@ -185,18 +187,14 @@ class EditTodoView {
 
   addHandlerEditTodo(handler) {
     let deprecatedTodo = this._data;
-    // let updatedData;
     this._parentElement.addEventListener("submit", function (e) {
       e.preventDefault();
       const dataArr = [...new FormData(this)];
       const data = Object.fromEntries(dataArr);
       data.id = deprecatedTodo.id;
       data.created = deprecatedTodo.created;
-      // updatedData = { ...data };
       handler(data);
     });
-    // this._updatedData = updatedData;
-    // console.log(this._updatedData);
   }
 
   renderMessage() {

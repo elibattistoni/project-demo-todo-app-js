@@ -20,6 +20,30 @@ const persistTodo = function () {
   localStorage.setItem("todos", JSON.stringify(state.todos));
 };
 
+/**
+ *
+ * @param {*} data
+ */
+export const uploadTodo = function (data) {
+  const date = new Date();
+  const today = `${date.getFullYear()}-${
+    date.getMonth() + 1
+  }-${date.getDate()}`;
+  const todo = {
+    title: data["form-todo-title"],
+    description: data["form-todo-descr"],
+    status: data["form-todo-status"].split("_").join(" ").toUpperCase(),
+    deadline: data["form-todo-deadline"],
+    created: today,
+    id: date.toLocaleString().replace(/\W/g, ""),
+  };
+  state.activeTodo = todo;
+  // state.todos.push(todo);
+  state.todos.unshift(todo); // add at beginning of array
+  state.totPages = Math.ceil(state.todos.length / state.resultsPerPage);
+  persistTodo();
+};
+
 export const getPageTodo = function (todoId) {
   const todosByPage = [];
   for (let i = 0; i < state.todos.length; i += state.resultsPerPage) {
@@ -35,24 +59,6 @@ export const getPageTodo = function (todoId) {
   const index = todoPresence.indexOf(max);
   // console.log("index", index);
   return index + 1;
-};
-/**
- *
- * @param {*} data
- */
-export const uploadTodo = function (data) {
-  const todo = {
-    title: data["form-todo-title"],
-    description: data["form-todo-descr"],
-    status: data["form-todo-status"].split("_").join(" ").toUpperCase(),
-    deadline: data["form-todo-deadline"],
-    created: new Date().toLocaleDateString(),
-    id: new Date().toLocaleString().replace(/\W/g, ""),
-  };
-  state.activeTodo = todo;
-  state.todos.push(todo);
-  state.totPages = Math.ceil(state.todos.length / state.resultsPerPage);
-  persistTodo();
 };
 
 export const setActiveTodo = function (todoId) {
@@ -80,7 +86,8 @@ export const updateActiveTodo = function (updatedData) {
   // remove the todo with the same id from the list
   const newTodos = state.todos.filter((t) => t.id !== updatedTodo.id);
   // add the updated todo
-  newTodos.push(updatedTodo);
+  // newTodos.push(updatedTodo);
+  newTodos.unshift(updatedTodo); // append at the beginning of the array
   // save to state
   state.todos = newTodos;
   // overwrite the todos in local storage
