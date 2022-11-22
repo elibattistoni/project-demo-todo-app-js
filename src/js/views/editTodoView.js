@@ -131,6 +131,7 @@ class EditTodoView {
   }
 
   _openForm() {
+    document.activeElement.blur();
     this._renderForm();
     this._windowForm.classList.remove("hidden");
     this._overlay.classList.remove("hidden");
@@ -173,6 +174,9 @@ class EditTodoView {
       ).textContent;
       this._data.id = window.location.hash.slice(1);
       this._openForm();
+      setTimeout(() => {
+        document.getElementById("form-id-title").focus();
+      }, 100);
     });
   }
 

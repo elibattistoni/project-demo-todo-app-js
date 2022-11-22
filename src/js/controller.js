@@ -83,13 +83,17 @@ const controlDelete = function (all) {
 const controlEditTodo = function (updatedData) {
   model.updateActiveTodo(updatedData);
 
+  const id = model.state.activeTodo.id;
+
   editTodoView.renderMessage();
 
   // no need to change url because it is the same
   //render details
   detailsTodoView.renderDetails(model.state.activeTodo);
 
-  todosListView.updateList(model.getTodosPage());
+  todosListView.renderList(model.getTodosPage(model.getPageTodo(id)));
+
+  paginationView.renderPageButtons(model.state);
 
   // Close window message if not close yet
   setTimeout(function () {

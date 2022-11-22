@@ -35,8 +35,6 @@ class AddTodoView {
           id="form-id-title"
           required
           placeholder="Title"
-          value="TODO Title"
-          class="input-title"
         />
       </li>
       <li class="form-field">
@@ -47,7 +45,7 @@ class AddTodoView {
           placeholder="Description"
           rows="4"
           cols="40"
-        >TODO Description</textarea>
+        ></textarea>
       </li>
       <li class="form-field">
         <label for="form-id-status">Status</label>
@@ -88,11 +86,10 @@ class AddTodoView {
       "afterbegin",
       this._generateMarkupForm()
     );
-    this._inputTitle = document.querySelector(".input-title");
-    this._inputTitle.focus();
   }
 
   _openForm() {
+    document.activeElement.blur();
     this._renderForm();
     this._windowForm.classList.remove("hidden");
     this._overlay.classList.remove("hidden");
@@ -117,7 +114,12 @@ class AddTodoView {
   }
 
   _addHandlerShowForm() {
-    this._btnOpen.addEventListener("click", this._openForm.bind(this));
+    this._btnOpen.addEventListener("click", (e) => {
+      this._openForm();
+      setTimeout(() => {
+        document.getElementById("form-id-title").focus();
+      }, 100);
+    });
   }
 
   _addHandlerCloseForm() {
