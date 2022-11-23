@@ -27,7 +27,7 @@ class AddTodoView {
     return `
     <h4>Add TODO</h4>
     <ul class="form-list-fields">
-      <li class="form-field">
+      <li class="form-field title-parent">
         <label for="form-id-title">Title</label>
         <input
           type="text"
@@ -35,6 +35,7 @@ class AddTodoView {
           id="form-id-title"
           required
           placeholder="Title"
+          tabindex="-1"
         />
       </li>
       <li class="form-field">
@@ -96,6 +97,7 @@ class AddTodoView {
   }
 
   _closeForm() {
+    // document.activeElement.blur();
     this._windowForm.classList.add("hidden");
     this._parentElement.reset(); // empty fields
   }
@@ -113,12 +115,21 @@ class AddTodoView {
     this._windowMessage.classList.remove("hidden");
   }
 
+  _focusOnVisible(element) {
+    new IntersectionObserver((entries, observer) => {
+      const [entry] = entries;
+      if (entry.isIntersecting && entry.intersectionRatio === 1) {
+        // setTimeout(() => entry.target.focus(), 50); // this is necessary if on the modal window you have the transition of 0.5s
+        entry.target.focus();
+        observer.unobserve(entry.target);
+      }
+    }).observe(element);
+  }
+
   _addHandlerShowForm() {
-    this._btnOpen.addEventListener("click", (e) => {
+    this._btnOpen.addEventListener("click", () => {
       this._openForm();
-      setTimeout(() => {
-        document.getElementById("form-id-title").focus();
-      }, 100);
+      this._focusOnVisible(document.getElementById("form-id-title"));
     });
   }
 

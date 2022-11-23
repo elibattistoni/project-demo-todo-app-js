@@ -155,6 +155,17 @@ class EditTodoView {
     this._windowMessage.classList.remove("hidden");
   }
 
+  _focusOnVisible(element) {
+    new IntersectionObserver((entries, observer) => {
+      const [entry] = entries;
+      if (entry.isIntersecting && entry.intersectionRatio === 1) {
+        // setTimeout(() => entry.target.focus(), 50); // this is necessary if on the modal window you have the transition of 0.5s
+        entry.target.focus();
+        observer.unobserve(entry.target);
+      }
+    }).observe(element);
+  }
+
   _addHandlerShowForm() {
     this._containerDetails.addEventListener("click", (e) => {
       const btn = e.target.closest(".btn-edit");
@@ -174,9 +185,7 @@ class EditTodoView {
       ).textContent;
       this._data.id = window.location.hash.slice(1);
       this._openForm();
-      setTimeout(() => {
-        document.getElementById("form-id-title").focus();
-      }, 100);
+      this._focusOnVisible(document.getElementById("form-id-title"));
     });
   }
 
