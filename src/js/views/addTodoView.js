@@ -36,6 +36,7 @@ class AddTodoView {
           required
           placeholder="Title"
           tabindex="-1"
+          maxlength="26"
         />
       </li>
       <li class="form-field">
@@ -46,6 +47,7 @@ class AddTodoView {
           placeholder="Description"
           rows="4"
           cols="40"
+          maxlength="367"
         ></textarea>
       </li>
       <li class="form-field">

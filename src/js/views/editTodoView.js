@@ -74,6 +74,7 @@ class EditTodoView {
           required
           placeholder="Title"
           value="${this._data?.title ?? "TODO Title"}"
+          maxlength="26"
         />
       </li>
       <li class="form-field">
@@ -84,6 +85,7 @@ class EditTodoView {
           placeholder="Description"
           rows="4"
           cols="40"
+          maxlength="367"
         >${this._data?.description ?? "TODO Description"}</textarea>
       </li>
       <li class="form-field">
