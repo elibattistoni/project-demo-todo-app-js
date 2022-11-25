@@ -110,7 +110,7 @@
   }
 
   10% {
-    transform: scale(0.98);
+    transform: scale(0.95);
   }
 
   20% {
@@ -125,7 +125,7 @@
 
 .item-expired {
   border-left: 10px solid var(--color-primary);
-  animation: pulse-expired 5s infinite ease-in-out;
+  animation: pulse-expired 10s infinite ease-in-out;
 }
 
 @keyframes pulse-expired {
@@ -135,7 +135,7 @@
   }
 
   10% {
-    transform: scale(0.98);
+    transform: scale(0.95);
     box-shadow: 0 0 0 0 rgba(142, 68, 173, 0.7);
   }
 
