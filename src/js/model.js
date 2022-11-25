@@ -121,6 +121,27 @@ export const getTodosPage = function (page = state.page) {
   return state.todosOnPage.slice(start, end);
 };
 
+export const sortTodos = function (direction) {
+  state.todos.sort((a, b) => {
+    const dateA = new Date(a.deadline);
+    const dateB = new Date(b.deadline);
+    if (direction === "down") return dateB - dateA;
+    if (direction === "up") return dateA - dateB;
+  });
+  state.activeTodo = state.todos[0];
+  state.page = 1;
+  // overwrite the todos in local storage
+  localStorage.setItem("todos", JSON.stringify(state.todos));
+};
+
+// export const state = {
+//   activeTodo: {},
+//   todos: [],
+//   todosOnPage: [],
+//   resultsPerPage: RES_PER_PAGE,
+//   page: 1,
+//   totPages: 1,
+// };
 const init = function () {
   const storage = localStorage.getItem("todos");
   if (storage) state.todos = JSON.parse(storage);

@@ -95,3 +95,77 @@
   color: var(--color-btn-gray);
   background-image: linear-gradient(var(--color-primary), var(--color-primary-darker) 100%);
 }
+
+/* https://www.florin-pop.com/blog/2019/03/css-pulse-effect/ */
+
+.item-almost-expired {
+  border-left: 10px solid var(--color-primary);
+  border-right: 10px solid var(--color-primary);
+  transform: scale(1);
+  animation-name: pulse-pink;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  /* animation: pulse-pink 3s infinite; */
+}
+
+@keyframes pulse-pink {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 var(--color-primary);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+
+.item-expired {
+  /* border-left: 5px solid rgba(52, 172, 224, 0.7); */
+  /* border-right: 5px solid rgba(52, 172, 224, 0.7); */
+  border-left: 10px solid rgba(255, 255, 255, 0.7);
+  border-right: 10px solid rgba(255, 255, 255, 0.7);
+  transform: scale(1);
+  /* animation: pulse-blue 3s infinite; */
+  animation: pulse-white 3s 3;
+}
+
+@keyframes pulse-blue {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(52, 172, 224, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(52, 172, 224, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(52, 172, 224, 0);
+  }
+}
+
+@keyframes pulse-white {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}

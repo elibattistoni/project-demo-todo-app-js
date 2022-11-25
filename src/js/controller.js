@@ -10,6 +10,7 @@ import detailsTodoView from "./views/detailsTodoView.js";
 import deleteTodoView from "./views/deleteTodoView.js";
 import todosListView from "./views/todosListView.js";
 import paginationView from "./views/paginationView.js";
+import sortView from "./views/sortView.js";
 
 /// THIS IS OKKKKKK
 const controlRenderDetails = function () {
@@ -44,18 +45,13 @@ const controlAddTodo = function (data) {
 
   paginationView.renderPageButtons(model.state);
 
+  if (model.state.todos.length > 1) sortView.renderSortButton();
+
+  // console.log("BEFORE SORTING model.state", model.state);
   // Close window message if not close yet
   setTimeout(function () {
     addTodoView.closeMessage();
   }, MODAL_CLOSE_SEC * 1000);
-
-  // just to try out the renderSplash
-  // setTimeout(() => {
-  //   detailsTodoView.renderSplash();
-  //   setTimeout(() => {
-  //     detailsTodoView.renderDetails(model.state.todos[3]);
-  //   }, 8000);
-  // }, 8000);
 };
 
 /// THIS IS OKKKKKK
@@ -77,6 +73,7 @@ const controlDelete = function (all) {
     }
   }
   todosListView.renderList(model.getTodosPage());
+  if (model.state.todos.length <= 1) sortView.removeSortButton();
 };
 
 /// THIS IS OKKKK
@@ -114,6 +111,21 @@ const controlRenderPagination = function () {
   paginationView.renderPageButtons(model.state);
 };
 
+const controlRenderSortButton = function () {
+  if (model.state.todos.length > 1) sortView.renderSortButton();
+};
+
+const controlUpdateSortButton = function () {
+  const direction = sortView.updateSortButton();
+  model.sortTodos(direction);
+  const id = model.state.activeTodo.id;
+  // Change ID in URL
+  window.history.pushState(null, "", `#${id}`);
+  detailsTodoView.renderDetails(model.state.activeTodo);
+  todosListView.renderList(model.getTodosPage(model.getPageTodo(id)));
+  paginationView.renderPageButtons(model.state);
+};
+
 const init = function () {
   todosListView.addHandlerRender(controlRenderList);
   ////// THIS IS OKKKKKKKK
@@ -124,9 +136,12 @@ const init = function () {
   editTodoView.addHandlerEditTodo(controlEditTodo);
   /// THIS IS OKKKKKK
   deleteTodoView.addHandlerDelete(controlDelete);
-  ////
+  //// THIS IS OKKK
   paginationView.addHandlerRender(controlRenderPagination);
   paginationView.addHandlerClick(controlPagination);
+  ///////
+  sortView.addHandlerRender(controlRenderSortButton);
+  sortView.addHandlerClick(controlUpdateSortButton);
 };
 
 init();
