@@ -24,7 +24,7 @@ class SortView {
   _generateMarkup() {
     return `
     <button class="btn btn-sort" data-direction="${this._direction}">
-      <span>Sort</span>
+      <span>Sort by deadline</span>
       <svg class="icon-page">
         <use href="${icons}#icon-arrow-${this._direction}"></use>
       </svg>

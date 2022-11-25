@@ -1,11 +1,22 @@
 :root {
-  --color-primary: rgb(201, 126, 251);
+  /* --color-primary: rgb(201, 126, 251);
   --color-primary-alpha: rgba(201, 126, 251, 0.7);
-  --color-primary-darker: rgb(120, 76, 150);
-  --color-dark-gray: rgb(59, 59, 59);
+  --color-primary-darker: rgb(120, 76, 150); */
+  /* --color-dark-gray: rgb(59, 59, 59); */
+  /* --color-whiteish: #fdfdfd; */
+
+  --color-primary-lighter: rgb(176, 113, 181);
+  --color-primary: rgb(127, 82, 131);
+  --color-primary-alpha: rgba(127, 82, 131, 0.7);
+  --color-primary-darker: rgb(98, 56, 102);
+  --color-secondary-lighter: rgb(184, 232, 255);
+  --color-secondary: rgb(166, 209, 230);
+  --color-secondary-darker: rgb(97, 162, 194);
+  --color-dark-gray: rgb(61, 60, 66);
+  --color-whiteish: rgb(254, 251, 246);
+
   --color-light-gray: rgb(184, 184, 184);
   --color-btn-gray: rgb(233, 233, 237);
-  --color-whiteish: #fdfdfd;
   --box-shadow: 5px 4px 10px -5px rgba(0, 0, 0, 0.75)
 }
 

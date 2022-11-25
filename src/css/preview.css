@@ -64,6 +64,18 @@
   margin-right: 0.2rem;
 }
 
+.preview-title-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.icon-clock-preview {
+  height: 1.5rem;
+  width: 1.5rem
+}
+
 .preview-todo-deadline, .preview-todo-status {
   display: flex;
   flex-direction: row;
@@ -71,13 +83,24 @@
   justify-content: space-between;
 }
 
+.item-expiring {
+  background-image: linear-gradient(var(--color-whiteish), var(--color-secondary-lighter) 70%);
+  color: var(--color-btn-gray);
+  animation: pulse-almost 10s infinite ease-in-out;
+}
+
+.item-expiring:hover {
+  background-image: linear-gradient(var(--color-secondary-lighter), var(--color-secondary-darker) 70%);
+  color: var(--color-btn-gray);
+}
+
 .item-active {
-  background-image: linear-gradient(var(--color-primary), var(--color-primary-darker) 150%);
+  background-image: linear-gradient(var(--color-primary-lighter), var(--color-primary-darker) 150%);
   color: var(--color-btn-gray)
 }
 
 .item-active:hover {
-  background-image: linear-gradient(var(--color-primary), var(--color-primary-darker) 50%);
+  background-image: linear-gradient(var(--color-primary-lighter), var(--color-primary) 50%);
 }
 
 .btn-sort {
@@ -99,10 +122,6 @@
 /* https://www.florin-pop.com/blog/2019/03/css-pulse-effect/ */
 /* https://css-tricks.com/css-keyframe-animation-delay-iterations/ */
 
-.item-almost-expired {
-  border-left: 5px solid var(--color-primary);
-  animation: pulse-almost 10s infinite ease-in-out;
-}
 
 @keyframes pulse-almost {
   0% {
@@ -119,33 +138,5 @@
 
   100% {
     transform: scale(1);
-  }
-}
-
-
-.item-expired {
-  border-left: 10px solid var(--color-primary);
-  animation: pulse-expired 10s infinite ease-in-out;
-}
-
-@keyframes pulse-expired {
-  0% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(142, 68, 173, 0.7);
-  }
-
-  10% {
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(142, 68, 173, 0.7);
-  }
-
-  20% {
-    transform: scale(1);
-    box-shadow: 0 0 0 10px rgba(142, 68, 173, 0);
-  }
-
-  100% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(142, 68, 173, 0);
   }
 }

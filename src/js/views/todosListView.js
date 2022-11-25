@@ -34,15 +34,23 @@ class TodosListView {
     const difference =
       (dateDealine.getTime() - dateToday.getTime()) / (1000 * 3600 * 24);
     let warningDeadline = "";
-    if (difference < 0) warningDeadline = "item-expired";
-    if (difference > 0 && difference < 1)
-      warningDeadline = "item-almost-expired";
+    if (difference < 1) warningDeadline = "item-expiring";
+    if (dataTodo.status === "DONE") warningDeadline = "";
+    const clockExpiring =
+      warningDeadline === "item-expiring"
+        ? `<use href="${icons}#icon-clock"></use>`
+        : ``;
     return `
     <li class="preview-todo-item ${warningDeadline} ${
       dataTodo.id === id ? "item-active" : ""
     }" data-order='["${dataTodo.counterId}","${dataTodo.deadline}"]'>
       <a href="#${dataTodo.id}" class="preview-link">
-        <h4 class="preview-todo-title">${dataTodo.title}</h4>
+        <div class="preview-title-container">
+          <h4 class="preview-todo-title">${dataTodo.title}</h4>
+          <svg class="icon-clock-preview">
+            ${clockExpiring}
+          </svg>
+        </div>
         <div class="preview-todo-info">
           <div class="preview-todo-status">
             <svg class="icon-preview">
