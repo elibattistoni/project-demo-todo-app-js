@@ -119,10 +119,6 @@
   background-image: linear-gradient(var(--color-primary), var(--color-primary-darker) 100%);
 }
 
-/* https://www.florin-pop.com/blog/2019/03/css-pulse-effect/ */
-/* https://css-tricks.com/css-keyframe-animation-delay-iterations/ */
-
-
 @keyframes pulse-almost {
   0% {
     transform: scale(1);
