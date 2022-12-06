@@ -6,7 +6,6 @@ class EditTodoView {
   _overlay = document.querySelector(".overlay");
   _containerDetails = document.querySelector(".container-todo-details");
   _data = {};
-  // _updatedData;
 
   constructor() {
     this._addHandlerShowForm();
@@ -111,13 +110,6 @@ class EditTodoView {
 
   _generateMarkupMessage() {
     this._clear(this._windowMessage);
-    // switch (this._data?.status) {
-    //   case value:
-    //     break;
-
-    //   default:
-    //     break;
-    // }
     return `
     <div class="added-message">
       <h3>TODO updated successfully!</h3>
