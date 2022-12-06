@@ -110,6 +110,7 @@ export const clearSingleTodo = function (todoId) {
   const newTodos = state.todos.filter((t) => t.id !== todoId);
   state.todos = newTodos;
   state.activeTodo = state.todos[state.todos.length - 1];
+  state.totPages = Math.ceil(state.todos.length / state.resultsPerPage);
   localStorage.setItem("todos", JSON.stringify(state.todos));
 };
 
@@ -134,14 +135,6 @@ export const sortTodos = function (direction) {
   localStorage.setItem("todos", JSON.stringify(state.todos));
 };
 
-// export const state = {
-//   activeTodo: {},
-//   todos: [],
-//   todosOnPage: [],
-//   resultsPerPage: RES_PER_PAGE,
-//   page: 1,
-//   totPages: 1,
-// };
 const init = function () {
   const storage = localStorage.getItem("todos");
   if (storage) state.todos = JSON.parse(storage);
