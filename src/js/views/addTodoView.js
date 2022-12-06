@@ -21,9 +21,10 @@ class AddTodoView {
   _generateMarkupForm() {
     this._clear(this._parentElement);
     const date = new Date();
-    const today = `${date.getFullYear()}-${
-      date.getMonth() + 1
-    }-${date.getDate()}`;
+    const dateDay = `${date.getDate()}`;
+    const today = `${date.getFullYear()}-${date.getMonth() + 1}-${
+      dateDay.length == 1 ? `0${dateDay}` : dateDay
+    }`;
     return `
     <h4>Add TODO</h4>
     <ul class="form-list-fields">
