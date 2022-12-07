@@ -44,26 +44,23 @@ export const uploadTodo = function (data) {
   persistTodo();
 };
 
-export const getPageTodo = function (todoId) {
+export const setPageActiveTodo = function (todoId) {
   const todosByPage = [];
   for (let i = 0; i < state.todos.length; i += state.resultsPerPage) {
     todosByPage.push(state.todos.slice(i, i + state.resultsPerPage));
   }
-  // console.log("todosByPage", todosByPage);
   const todoPresence = todosByPage.map((tt) =>
     tt.findIndex((t) => t.id === todoId)
   );
-  // console.log("todoPresence", todoPresence);
   const max = Math.max(...todoPresence);
-  // console.log("max", max);
   const index = todoPresence.indexOf(max);
-  // console.log("index", index);
-  return index + 1;
+  state.page = index + 1;
 };
 
 export const setActiveTodo = function (todoId) {
   // if (state.todos.length === 0) return;
   state.activeTodo = state.todos.filter((t) => t.id === todoId)[0];
+  setPageActiveTodo(state.activeTodo.id);
 };
 
 export const setLastActiveTodo = function () {
@@ -107,10 +104,16 @@ export const clearAllTodos = function () {
 };
 
 export const clearSingleTodo = function (todoId) {
-  const newTodos = state.todos.filter((t) => t.id !== todoId);
-  state.todos = newTodos;
-  state.activeTodo = state.todos[state.todos.length - 1];
-  state.totPages = Math.ceil(state.todos.length / state.resultsPerPage);
+  if (state.todos.length === 1) {
+    clearAllTodos();
+  } else {
+    const newTodos = state.todos.filter((t) => t.id !== todoId);
+    state.todos = newTodos;
+    // state.activeTodo = state.todos[state.todos.length - 1];
+    state.activeTodo = state.todos[0];
+    state.totPages = Math.ceil(state.todos.length / state.resultsPerPage);
+    getTodosPage();
+  }
   localStorage.setItem("todos", JSON.stringify(state.todos));
 };
 

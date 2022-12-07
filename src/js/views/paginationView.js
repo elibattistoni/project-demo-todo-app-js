@@ -25,8 +25,6 @@ class PaginationView {
     const currentPage = this._data.page;
     const numTodos = this._data.todos.length;
     const numPages = Math.ceil(numTodos / this._data.resultsPerPage);
-    // console.log("currentPage", currentPage);
-    // console.log("numPages", numPages);
 
     if (numTodos === 0) {
       this._parentElement.classList.add("hidden");
@@ -126,10 +124,7 @@ class PaginationView {
 
   renderPageButtons(data) {
     this._data = data;
-    // console.log("render page buttons");
-    // console.log(this._data);
     const markup = this._generateMarkup();
-    // console.log(markup);
     this._clear(this._parentElement);
     this._parentElement.insertAdjacentHTML("afterbegin", markup);
   }

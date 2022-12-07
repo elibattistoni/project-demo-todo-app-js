@@ -41,13 +41,15 @@ const controlAddTodo = function (data) {
   // Render new TODO in container details
   detailsTodoView.renderDetails(model.state.activeTodo);
 
-  todosListView.renderList(model.getTodosPage(model.getPageTodo(id)));
+  // set page active todo
+  model.setPageActiveTodo(id);
+
+  todosListView.renderList(model.getTodosPage());
 
   paginationView.renderPageButtons(model.state);
 
   if (model.state.todos.length > 1) sortView.renderSortButton();
 
-  // console.log("BEFORE SORTING model.state", model.state);
   // Close window message if not close yet
   setTimeout(function () {
     addTodoView.closeMessage();
@@ -58,20 +60,21 @@ const controlAddTodo = function (data) {
 const controlDelete = function (all) {
   all
     ? model.clearAllTodos()
-    : model.clearSingleTodo(model.state.activeTodo.id);
+    : model.clearSingleTodo(model.state.activeTodo.id); // this sets also a new active todo
 
-  if (all) {
+  const id = model.state.activeTodo.id; // undefined if cleared all
+
+  if (all || (!all && model.state.todos.length === 0)) {
     detailsTodoView.renderSplash();
     paginationView.removeRenderPageButtons();
   } else {
-    if (model.state.todos.length > 0) {
-      window.history.pushState(null, "", `#${model.state.activeTodo.id}`);
-      detailsTodoView.renderDetails(model.state.activeTodo);
-    } else {
-      detailsTodoView.renderSplash();
-      paginationView.removeRenderPageButtons();
-    }
+    window.history.pushState(null, "", `#${id}`);
+    detailsTodoView.renderDetails(model.state.activeTodo);
+    // set page active todo
+    model.setPageActiveTodo(id);
+    paginationView.renderPageButtons(model.state);
   }
+
   todosListView.renderList(model.getTodosPage());
   if (model.state.todos.length <= 1) sortView.removeSortButton();
 };
@@ -88,7 +91,10 @@ const controlEditTodo = function (updatedData) {
   //render details
   detailsTodoView.renderDetails(model.state.activeTodo);
 
-  todosListView.renderList(model.getTodosPage(model.getPageTodo(id)));
+  // set page active todo
+  model.setPageActiveTodo(id);
+
+  todosListView.renderList(model.getTodosPage());
 
   paginationView.renderPageButtons(model.state);
 
@@ -122,7 +128,9 @@ const controlUpdateSortButton = function () {
   // Change ID in URL
   window.history.pushState(null, "", `#${id}`);
   detailsTodoView.renderDetails(model.state.activeTodo);
-  todosListView.renderList(model.getTodosPage(model.getPageTodo(id)));
+  // set page active todo
+  model.setPageActiveTodo(id);
+  todosListView.renderList(model.getTodosPage());
   paginationView.renderPageButtons(model.state);
 };
 
