@@ -1,19 +1,16 @@
 import image from "url:../../img/completed.svg";
-class EditTodoView {
+import View from "./View.js";
+class EditTodoView extends View {
   _parentElement = document.querySelector(".form-edit-todo");
   _windowForm = document.querySelector(".modal-edit");
-  _windowMessage = document.querySelector(".modal-message");
   _overlay = document.querySelector(".overlay");
   _containerDetails = document.querySelector(".container-todo-details");
   _data = {};
 
   constructor() {
+    super();
     this._addHandlerShowForm();
     this._addHandlerCloseForm();
-  }
-
-  _clear(element) {
-    element.innerHTML = "";
   }
 
   _generateMarkupForm() {
@@ -117,49 +114,6 @@ class EditTodoView {
     </div>`;
   }
 
-  _renderForm() {
-    this._parentElement.insertAdjacentHTML(
-      "afterbegin",
-      this._generateMarkupForm()
-    );
-  }
-
-  _openForm() {
-    document.activeElement.blur();
-    this._renderForm();
-    this._windowForm.classList.remove("hidden");
-    this._overlay.classList.remove("hidden");
-  }
-
-  _closeForm() {
-    this._windowForm.classList.add("hidden");
-    this._parentElement.reset(); // empty fields
-  }
-
-  _closeOverlay() {
-    this._overlay.classList.add("hidden");
-  }
-
-  _closeFormManually() {
-    this._closeForm();
-    this._closeOverlay();
-  }
-
-  _openMessage() {
-    this._windowMessage.classList.remove("hidden");
-  }
-
-  _focusOnVisible(element) {
-    new IntersectionObserver((entries, observer) => {
-      const [entry] = entries;
-      if (entry.isIntersecting && entry.intersectionRatio === 1) {
-        // setTimeout(() => entry.target.focus(), 50); // this is necessary if on the modal window you have the transition of 0.5s
-        entry.target.focus();
-        observer.unobserve(entry.target);
-      }
-    }).observe(element);
-  }
-
   _addHandlerShowForm() {
     this._containerDetails.addEventListener("click", (e) => {
       const btn = e.target.closest(".btn-edit");
@@ -178,17 +132,19 @@ class EditTodoView {
         ".todo-deadline-date"
       ).textContent;
       this._data.id = window.location.hash.slice(1);
-      this._openForm();
+      this._openForm("_parentElement", this._generateMarkupForm());
       this._focusOnVisible(document.getElementById("form-id-title"));
     });
   }
 
   _addHandlerCloseForm() {
-    this._overlay.addEventListener("click", this._closeFormManually.bind(this));
+    this._overlay.addEventListener("click", () => {
+      this._closeFormManually(true);
+    });
     this._windowForm.addEventListener("click", (e) => {
       const btn = e.target.closest(".btn-close-modal");
       if (!btn) return;
-      this._closeFormManually();
+      this._closeFormManually(true);
     });
   }
 
@@ -202,20 +158,6 @@ class EditTodoView {
       data.created = deprecatedTodo.created;
       handler(data);
     });
-  }
-
-  renderMessage() {
-    this._closeForm();
-    this._openMessage();
-    this._windowMessage.insertAdjacentHTML(
-      "afterbegin",
-      this._generateMarkupMessage()
-    );
-  }
-
-  closeMessage() {
-    this._windowMessage.classList.add("hidden");
-    this._closeOverlay();
   }
 }
 

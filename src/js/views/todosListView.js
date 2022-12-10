@@ -1,15 +1,16 @@
 // View that renders the list of todos
 import icons from "url:../../img/icons.svg";
+import View from "./View.js";
 
-class TodosListView {
+class TodosListView extends View {
   _parentElement = document.querySelector(".todos-list");
+
+  constructor() {
+    super();
+  }
 
   addHandlerRender(handler) {
     window.addEventListener("load", handler);
-  }
-
-  _clear(element) {
-    element.innerHTML = "";
   }
 
   _generateMarkupSingleTodo(dataTodo) {

@@ -1,21 +1,21 @@
 // View that shows the details of a todo that was clicked on
 // import View from "./View.js";
 import icons from "url:../../img/icons.svg";
+import View from "./View.js";
 
-class DetailsTodoView {
+class DetailsTodoView extends View {
   _data;
+  _splashWindow = document.querySelector(".details-splash");
+  _detailsWindow = document.querySelector(".todo-details");
+
+  constructor() {
+    super();
+  }
 
   addHandlerRender(handler) {
     ["hashchange", "load"].forEach((ev) => {
       window.addEventListener(ev, handler);
     });
-  }
-
-  _splashWindow = document.querySelector(".details-splash");
-  _detailsWindow = document.querySelector(".todo-details");
-
-  _clear(element) {
-    element.innerHTML = "";
   }
 
   _generateMarkup() {

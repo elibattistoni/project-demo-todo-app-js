@@ -1,8 +1,13 @@
 // View that renders the pagination
 import icons from "url:../../img/icons.svg";
-class PaginationView {
+import View from "./View.js";
+class PaginationView extends View {
   _data;
   _parentElement = document.querySelector(".pagination");
+
+  constructor() {
+    super();
+  }
 
   addHandlerRender(handler) {
     window.addEventListener("load", handler);
@@ -15,10 +20,6 @@ class PaginationView {
       const goToPage = +btn.dataset.goto;
       handler(goToPage);
     });
-  }
-
-  _clear(element) {
-    element.innerHTML = "";
   }
 
   _generateMarkup() {

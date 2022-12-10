@@ -1,21 +1,17 @@
 // View that renders the form for adding and updating a todo
 import image from "url:../../img/add.svg";
+import View from "./View.js";
 
-class AddTodoView {
+class AddTodoView extends View {
   _parentElement = document.querySelector(".form-add-todo");
   _windowForm = document.querySelector(".modal-add");
-  _windowMessage = document.querySelector(".modal-message");
-  _overlay = document.querySelector(".overlay");
   _btnOpen = document.querySelector(".btn-open");
   _btnClose = document.querySelector(".btn-close-modal");
 
   constructor() {
+    super();
     this._addHandlerShowForm();
     this._addHandlerCloseForm();
-  }
-
-  _clear(element) {
-    element.innerHTML = "";
   }
 
   _generateMarkupForm() {
@@ -85,53 +81,9 @@ class AddTodoView {
     </div>`;
   }
 
-  _renderForm() {
-    this._parentElement.insertAdjacentHTML(
-      "afterbegin",
-      this._generateMarkupForm()
-    );
-  }
-
-  _openForm() {
-    document.activeElement.blur();
-    this._renderForm();
-    this._windowForm.classList.remove("hidden");
-    this._overlay.classList.remove("hidden");
-  }
-
-  _closeForm() {
-    // document.activeElement.blur();
-    this._windowForm.classList.add("hidden");
-    this._parentElement.reset(); // empty fields
-  }
-
-  _closeOverlay() {
-    this._overlay.classList.add("hidden");
-  }
-
-  _closeFormManually() {
-    this._closeForm();
-    this._closeOverlay();
-  }
-
-  _openMessage() {
-    this._windowMessage.classList.remove("hidden");
-  }
-
-  _focusOnVisible(element) {
-    new IntersectionObserver((entries, observer) => {
-      const [entry] = entries;
-      if (entry.isIntersecting && entry.intersectionRatio === 1) {
-        // setTimeout(() => entry.target.focus(), 50); // this is necessary if on the modal window you have the transition of 0.5s
-        entry.target.focus();
-        observer.unobserve(entry.target);
-      }
-    }).observe(element);
-  }
-
   _addHandlerShowForm() {
     this._btnOpen.addEventListener("click", () => {
-      this._openForm();
+      this._openForm("_parentElement", this._generateMarkupForm());
       this._focusOnVisible(document.getElementById("form-id-title"));
     });
   }
@@ -139,9 +91,12 @@ class AddTodoView {
   _addHandlerCloseForm() {
     this._btnClose.addEventListener(
       "click",
-      this._closeFormManually.bind(this)
+      this._closeFormManually.bind(this, true)
     );
-    this._overlay.addEventListener("click", this._closeFormManually.bind(this));
+    this._overlay.addEventListener(
+      "click",
+      this._closeFormManually.bind(this, true)
+    );
   }
 
   addHandlerNewTodo(handler) {
@@ -151,20 +106,6 @@ class AddTodoView {
       const data = Object.fromEntries(dataArr);
       handler(data);
     });
-  }
-
-  renderMessage() {
-    this._closeForm();
-    this._openMessage();
-    this._windowMessage.insertAdjacentHTML(
-      "afterbegin",
-      this._generateMarkupMessage()
-    );
-  }
-
-  closeMessage() {
-    this._windowMessage.classList.add("hidden");
-    this._closeOverlay();
   }
 }
 

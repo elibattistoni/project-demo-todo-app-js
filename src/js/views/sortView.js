@@ -1,8 +1,13 @@
 import icons from "url:../../img/icons.svg";
+import View from "./View.js";
 
-class SortView {
+class SortView extends View {
   _parentElement = document.querySelector(".sort-todos");
   _direction;
+
+  constructor() {
+    super();
+  }
 
   addHandlerRender(handler) {
     window.addEventListener("load", handler);
@@ -15,10 +20,6 @@ class SortView {
       this._direction = btn.dataset.direction;
       handler();
     });
-  }
-
-  _clear(element) {
-    element.innerHTML = "";
   }
 
   _generateMarkup() {
