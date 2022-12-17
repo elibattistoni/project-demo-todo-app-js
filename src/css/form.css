@@ -1,63 +1,101 @@
 .modal-window {
   position: fixed;
-  top: 50%;
+  top: 25%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  width: 40%;
-  height: 45%;
+  transform: translate(-50%, -25%);
+
   background-color: var(--color-whiteish);
   border-radius: 9px;
-  padding: 1.5rem 2rem;
+  padding: 2rem;
+  padding-top: 1rem;
   box-shadow: var(--box-shadow);
-  z-index: 1000;
-  /* transition: all 0.5s; */
+  z-index: 30;
+  font-size: 1.6rem;
+  display: grid;
+}
+
+.modal-add, .modal-edit {
+  grid-template-rows: 0.5fr 8fr;
+  width: 64rem;
+  height: 48rem;
 }
 
 .btn-close-modal {
+  align-self: self-start;
+  justify-self: self-end;
   font-family: inherit;
+  font-size: 2.4rem;
   color: inherit;
-  position: absolute;
-  top: 0.2rem;
-  right: 0.5rem;
-  font-size: 2rem;
   cursor: pointer;
   border: none;
   background: transparent;
 }
 
 .form-add-todo, .form-edit-todo {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  display: grid;
+  grid-template-rows: 1fr 5fr 1fr;
+  gap: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.form-heading {
+  font-size: 2rem;
 }
 
 .form-list-fields {
   list-style: none;
   padding: 0;
-  margin: 0 0 0.5rem 0;
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 .form-field {
-  margin-bottom: 1rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
 }
 
 .form-field input, .form-field select, .form-field textarea {
   outline: none;
   font-family: inherit;
+  font-size: 1.4rem;
   display: block;
   box-sizing: border-box;
-  padding: 0.25rem;
+  padding: 1rem;
   border: 1px solid black;
-  border-radius: 3px;
+  border-radius: 9px;
   background-color: var(--color-btn-gray);
 }
 
 .form-field textarea {
   resize: none
 }
+
+.form-field select {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-image:
+    linear-gradient(45deg, transparent 50%, gray 50%),
+    linear-gradient(135deg, gray 50%, transparent 50%),
+    linear-gradient(to right, #ccc, #ccc);
+  background-position:
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px),
+    calc(100% - 2.5em) 0.5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1px 1.5em;
+  background-repeat: no-repeat;
+}
+
+/* change dropdown arrow with css only https://codepen.io/vkjgr/pen/VYMeXp */
+/* modal popups https://1stwebdesigner.com/15-modal-popup-windows-created-with-only-css/ */
 
 .form-field select option {
   margin-top: 2rem
@@ -73,12 +111,11 @@
 }
 
 .submit-btn {
-  width: 5rem;
-  align-self: flex-end;
-  font-size: inherit;
-  font-family: inherit;
   transition: all .3s;
   color: var(--color-primary-darker);
+  justify-self: self-end;
+  font-size: 1.6rem;
+  align-self: center;
 }
 
 .submit-btn:hover {
@@ -87,45 +124,57 @@
   transform: scale(1.1);
 }
 
-.added-message {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.image-message {
-  width: 25rem;
-  padding-top: 1rem
-}
-
-.image-completed {
-  height: 15rem;
-}
+/* ------------------------------------- */
 
 .modal-reset {
-  width: 30%;
-  height: 15%;
-  padding: 1.5rem 1.5rem 0.5rem;
+  height: 24rem;
+  grid-template-rows: 0.5fr 2fr 1fr;
 }
 
 .reset-message {
   text-align: center;
-  padding-top: 0.5rem
+  align-self: center;
+  padding: 0 2rem;
 }
 
 .buttons-deletion {
   display: flex;
   justify-content: space-around;
   align-items: flex-end;
+  align-self: center
 }
 
 .buttons-deletion button {
-  width: 4rem;
+  font-weight: 400;
+  font-size: 1.6rem;
+  color: var(--color-primary)
 }
 
 .buttons-deletion button:hover {
   background-image: linear-gradient(var(--color-primary), var(--color-primary-darker) 100%);
   color: var(--color-btn-gray);
   transform: scale(1.1);
+}
+
+/* ---------------------------------------- */
+.modal-message {
+  display: flex;
+  height: 36rem;
+  width: 48rem;
+  justify-content: center;
+}
+
+.added-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.image-message {
+  width: 36rem;
+}
+
+.image-edited {
+  width: 20rem
 }

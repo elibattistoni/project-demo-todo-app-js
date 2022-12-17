@@ -1,35 +1,47 @@
 .container-todos-preview {
-  flex: 1;
-  margin: 0.5rem;
-  height: 95%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  height: 48rem;
+  display: grid;
+  grid-template-rows: 0.5fr 5fr 0.5fr;
+  margin-left: 1.2rem;
 }
 
 .sort-todos {
-  flex: 1;
-  justify-content: right;
+  justify-self: right;
+}
+
+.btn-sort {
+  border-radius: 5px;
+  font-size: 1.2rem;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem
+}
+
+.icon-sort {
+  height: 1.4rem;
+  width: 1.4rem;
+}
+
+.btn-sort:hover {
+  color: var(--color-btn-gray);
+  background-image: linear-gradient(var(--color-primary), var(--color-primary-darker) 100%);
 }
 
 .todos-list {
-  flex: 10;
   list-style: none;
-  margin: 0;
-  padding: 0;
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  gap: 1rem;
+  font-size: 1.6rem;
 }
 
-/* the last element .pagination has flex 1 and it is defined in pagination.css */
 
 .preview-todo-item {
   background-image: linear-gradient(var(--color-btn-gray), var(--color-light-gray) 150%);
   border-radius: 5px;
   padding: 0.5rem 1rem;
-  margin-bottom: 0.5rem;
   box-shadow: var(--box-shadow);
-  height: 4rem;
-  line-height: 1.3rem;
-  display: grid;
 }
 
 .preview-todo-item:hover {
@@ -37,31 +49,10 @@
 }
 
 .preview-link {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.preview-todo-item h4, .preview-todo-item span {
-  margin: 0
-}
-
-.preview-todo-title {
-  margin: auto;
-  padding-top: 0.3rem;
-}
-
-.preview-todo-info {
-  font-size: 0.8rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.icon-preview {
-  height: 0.8rem;
-  width: 0.8rem;
-  margin-right: 0.2rem;
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1.2rem;
+  margin-top: 0.8rem
 }
 
 .preview-title-container {
@@ -71,19 +62,34 @@
   justify-content: space-between;
 }
 
+.preview-todo-title {
+  justify-self: self-start
+}
+
 .icon-clock-preview {
-  height: 1.5rem;
-  width: 1.5rem
+  height: 1.6rem;
+  width: 1.6rem
+}
+
+.preview-todo-info {
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon-preview {
+  height: 1.4rem;
+  width: 1.4rem;
 }
 
 .preview-todo-deadline, .preview-todo-status {
   display: flex;
-  flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  gap: 0.4rem;
+  align-items: flex-end;
 }
 
-.item-expiring {
+/* .item-expiring {
   background-image: linear-gradient(var(--color-whiteish), var(--color-secondary-lighter) 70%);
   color: var(--color-btn-gray);
   animation: pulse-almost 10s infinite ease-in-out;
@@ -92,7 +98,7 @@
 .item-expiring:hover {
   background-image: linear-gradient(var(--color-secondary-lighter), var(--color-secondary-darker) 70%);
   color: var(--color-btn-gray);
-}
+} */
 
 .item-active {
   background-image: linear-gradient(var(--color-primary-lighter), var(--color-primary-darker) 150%);
@@ -103,21 +109,7 @@
   background-image: linear-gradient(var(--color-primary-lighter), var(--color-primary) 50%);
 }
 
-.btn-sort {
-  float: right;
-  font-size: 0.8rem;
-  padding: 0.4rem;
-}
 
-.btn-sort span {
-  padding-right: 0.3rem;
-  padding-left: 0.3rem;
-}
-
-.btn-sort:hover {
-  color: var(--color-btn-gray);
-  background-image: linear-gradient(var(--color-primary), var(--color-primary-darker) 100%);
-}
 
 @keyframes pulse-almost {
   0% {

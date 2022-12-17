@@ -1,37 +1,39 @@
 .page-header {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  justify-items: stretch;
+  max-height: 12rem;
   align-items: center;
-  justify-content: space-between;
-  height: 5rem;
-  padding: 1rem 5%;
-  background: linear-gradient(360deg, var(--color-whiteish), var(--color-dark-gray));
+  padding-top: 2rem;
+  /* background-color: aquamarine; */
 }
 
 .page-header-logo {
-  height: 4.6rem;
-  display: block;
+  max-height: 8rem;
+  font-weight: bold;
   background-color: transparent;
+}
+
+.nav {
+  grid-column: 6 / 7;
 }
 
 .nav-list {
   list-style: none;
   display: flex;
-  margin: 0;
-  padding: 0;
+  align-items: center;
+  gap: 2rem;
+  justify-content: end;
 }
 
 .nav-item {
   color: var(--color-primary-darker);
 }
 
-.nav-btn:first-child {
-  margin-right: 1rem;
-}
 
 .icon-btn-nav {
-  height: 1.5rem;
-  width: 1.5rem;
-  margin-right: 0.5rem;
+  height: 2rem;
+  width: 2rem;
 }
 
 .nav-btn:hover {

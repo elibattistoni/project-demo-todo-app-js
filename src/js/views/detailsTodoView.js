@@ -45,7 +45,7 @@ class DetailsTodoView extends View {
         </div>
       </header>
 
-      <main>
+      <main class="todo-main-content">
         <p class="todo-description">
         ${this._data.description}
         </p>

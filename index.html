@@ -35,22 +35,23 @@
 
         <nav class="nav">
           <ul class="nav-list">
+            
             <li class="nav-item">
               <button class="btn nav-btn btn-open">
                 <svg class="icon-btn-nav">
                   <use href="src/img/icons.svg#icon-add"></use>
                 </svg>
-                <span>Add TODO</span>
               </button>
             </li>
+            
             <li class="nav-item">
               <button class="btn nav-btn btn-reset">
                 <svg class="icon-btn-nav">
                   <use href="src/img/icons.svg#icon-trash"></use>
                 </svg>
-                <span>Reset</span>
               </button>
             </li>
+
           </ul>
         </nav>
       </header>
@@ -59,7 +60,7 @@
         <!-- section for displaying the list of todos -->
         <section class="container-todos-preview">
 
-          <div class="sort-todos removed"></div>
+          <div class="sort-todos hidden"></div>
 
           <ul class="todos-list"></ul>
           <div class="pagination"></div>
@@ -67,10 +68,10 @@
 
         <!-- section for displaying the details of the todos -->
         <section class="container-todo-details">
+
           <!--  hide this when the user adds a todo -->
           <section class="details-splash">
-            <p>Start by adding a todo or clicking on an existing one.</p>
-            <p>Have fun!</p>
+            <p class="text-splash">Start by adding a todo or clicking on an existing one. Have fun!</p>
             <img src="src/img/splash.svg" alt="Welcome" class="image-splash" />
           </section>
 
@@ -104,9 +105,5 @@
       <button class="btn-close-modal">&times;</button>
     </div>
 
-    <!-- message for alert about to expire todo TODO-->
-    <div class="modal-window modal-alert hidden">
-      <button class="btn-close-modal">&times;</button>
-    </div>
   </body>
 </html>

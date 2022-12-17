@@ -1,11 +1,11 @@
 .todos-container {
   background-color: var(--color-dark-gray);
   box-shadow: var(--box-shadow);
-  border-radius: 10px;
-  width: 70%;
-  margin: 2rem auto;
-  display: flex;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
   align-items: center;
   justify-content: space-around;
-  height: 35rem;
+  max-height: 56rem;
+  column-gap: 1.2rem
 }

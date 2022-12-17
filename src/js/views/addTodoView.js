@@ -22,7 +22,7 @@ class AddTodoView extends View {
       dateDay.length == 1 ? `0${dateDay}` : dateDay
     }`;
     return `
-    <h4>Add TODO</h4>
+    <h4 class="form-heading">Add TODO</h4>
     <ul class="form-list-fields">
       <li class="form-field title-parent">
         <label for="form-id-title">Title</label>

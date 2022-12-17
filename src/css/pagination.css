@@ -1,39 +1,40 @@
 .pagination {
-  flex: 0.5;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
   align-items: center;
+  align-self: self-end;
 }
-
-.current-page {
-  font-size: 0.8rem;
-  color: var(--color-btn-gray);
-  border: 0.2px solid var(--color-btn-gray);
-  width: 1rem;
-  height: 1rem;
-  border-radius: 50%;
-  margin: 0;
-  text-align: center;
-  padding: 0.2rem
-}
-
 
 .btn-pagination {
-  font-size: 0.8rem;
-  padding: 0.4rem;
-}
-
-.btn-pagination span {
-  padding-right: 0.3rem;
-  padding-left: 0.3rem;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 0.4rem
 }
 
 .icon-page {
-  height: 0.8rem;
-  width: 0.8rem;
-  display: grid;
+  height: 1.4rem;
+  width: 1.4rem;
 }
+
+.btn--page-before {
+  grid-column: 1 / 3;
+}
+
+.btn--page-after {
+  grid-column: 6 / 8;
+}
+
+.current-page {
+  grid-column: 4 / 5;
+  color: var(--color-btn-gray);
+  font-size: 1.2rem;
+  justify-self: center;
+}
+
 
 
 .btn-pagination:hover {

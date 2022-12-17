@@ -1,34 +1,39 @@
 .container-todo-details {
-  flex: 2;
-  margin-right: 0.5rem;
-  height: 95%;
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-right: 1.2rem
 }
 
 .details-splash {
   background-color: var(--color-btn-gray);
   border-radius: 5px;
-  box-shadow: var(--box-shadow);
-  display: flex;
-  flex-direction: column;
+  font-size: 1.6rem;
+  display: grid;
+  grid-template-rows: 1fr 3fr;
+  justify-items: center;
   align-items: center;
-  justify-content: center;
-  height: 89.6%
+  height: 40rem;
 }
 
 .image-splash {
-  height: 12rem;
-  padding-top: 2rem
+  height: 18rem
+}
+
+.text-splash {
+  align-self: self-end;
 }
 
 .todo-details {
   background-image: linear-gradient(var(--color-btn-gray), var(--color-light-gray) 200%);
   border-radius: 5px;
   box-shadow: var(--box-shadow);
-  padding: 0.5rem 2rem;
-  height: 87%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  font-size: 1.6rem;
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  gap: 2rem;
+  padding: 2.4rem;
+  height: 40rem;
+  max-height: 40rem;
 }
 
 .removed {
@@ -36,60 +41,60 @@
 }
 
 .todo-header {
+  grid-row: 1 / 2;
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  color: var(--color-primary-darker);
 }
-
 
 .todo-status {
-  display: flex;
-  flex-direction: row;
-  align-items: center
+  justify-self: self-end
 }
 
-.todo-description {
-  text-align: justify;
-  font-size: 1.2rem;
-  word-break: break-all;
+.todo-main-content {
+  grid-row: 2 / 6;
+  display: grid;
+  grid-template-rows: 3.5fr 1fr;
+  padding-top: 1rem
 }
 
 .todo-dates {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  height: 3rem;
-  padding: 2rem 0 0.5rem 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .todo-created, .todo-deadline {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  align-items: center;
 }
 
-.todo-created-title, .todo-deadline-title {
+.todo-deadline {
+  justify-self: self-end;
+}
+
+.todo-created-title,
+.todo-deadline-title {
   display: flex;
-  flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
+  gap: 0.8rem
 }
 
 .icon-details {
-  height: 1rem;
-  width: 1rem;
-  margin-right: 0.2rem;
+  height: 1.6rem;
+  width: 1.6rem;
 }
 
+
 .edit-delete-todo {
-  float: right;
-  padding-bottom: 0.5rem;
+  grid-row: 6 / 7;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: end;
 }
 
 .btn-edit, .btn-delete {
-  float: inherit;
   color: var(--color-primary-darker);
   transition: all .3s;
 }
@@ -101,11 +106,6 @@
 }
 
 .icon-edit, .icon-delete {
-  margin: 0;
-  height: 1.5rem;
-  width: 1.5rem;
-}
-
-.btn-edit {
-  margin-right: 1rem
+  height: 2rem;
+  width: 2rem;
 }

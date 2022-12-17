@@ -26,7 +26,7 @@ class SortView extends View {
     return `
     <button class="btn btn-sort" data-direction="${this._direction}">
       <span>Sort by deadline</span>
-      <svg class="icon-page">
+      <svg class="icon-sort">
         <use href="${icons}#icon-arrow-${this._direction}"></use>
       </svg>
     </button>
@@ -34,19 +34,19 @@ class SortView extends View {
   }
 
   removeSortButton() {
-    this._parentElement.classList.add("removed");
+    this._parentElement.classList.add("hidden");
   }
 
   renderSortButton() {
     this._direction = "up";
-    this._parentElement.classList.remove("removed");
+    this._parentElement.classList.remove("hidden");
     const markup = this._generateMarkup();
     this._clear(this._parentElement);
     this._parentElement.insertAdjacentHTML("afterbegin", markup);
   }
 
   updateSortButton() {
-    this._parentElement.classList.remove("removed");
+    this._parentElement.classList.remove("hidden");
     this._direction = this._direction === "up" ? "down" : "up";
     const markup = this._generateMarkup();
     this._clear(this._parentElement);

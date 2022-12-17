@@ -59,7 +59,7 @@ class EditTodoView extends View {
         break;
     }
     return `
-    <h4>${this?._formTypeAdd ? "Add" : "Edit"} TODO</h4>
+    <h4 class="form-heading">${this?._formTypeAdd ? "Add" : "Edit"} TODO</h4>
     <ul class="form-list-fields">
       <li class="form-field">
         <label for="form-id-title">Title</label>
@@ -110,7 +110,7 @@ class EditTodoView extends View {
     return `
     <div class="added-message">
       <h3>TODO updated successfully!</h3>
-      <img src="${image}" alt="TODO edited" class="image-message image-completed"></img>
+      <img src="${image}" alt="TODO edited" class="image-edited"></img>
     </div>`;
   }
 

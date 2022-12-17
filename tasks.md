@@ -23,3 +23,7 @@ Pls Lisschen! do me a todo app!
 - git history pls
 - readme would be nice
 - comments? i mean the ones for inteliisense :)
+
+
+# Add hover text with html and css
+IMPORTANT https://sebhastian.com/html-hover-text/
