@@ -6,11 +6,10 @@
 
   background-color: var(--color-whiteish);
   border-radius: 9px;
-  padding: 2rem;
-  padding-top: 1rem;
+  padding: 1rem 2rem 2rem;
   box-shadow: var(--box-shadow);
   z-index: 30;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   display: grid;
 }
 
@@ -24,7 +23,7 @@
   align-self: self-start;
   justify-self: self-end;
   font-family: inherit;
-  font-size: 2.4rem;
+  font-size: 3rem;
   color: inherit;
   cursor: pointer;
   border: none;
@@ -40,7 +39,7 @@
 }
 
 .form-heading {
-  font-size: 2rem;
+  font-size: 2.4rem;
 }
 
 .form-list-fields {
@@ -48,7 +47,6 @@
   padding: 0;
   display: grid;
   gap: 1rem;
-  margin-bottom: 1rem;
 }
 
 .form-field {
@@ -60,7 +58,8 @@
 .form-field input, .form-field select, .form-field textarea {
   outline: none;
   font-family: inherit;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
+  font-weight: inherit;
   display: block;
   box-sizing: border-box;
   padding: 1rem;
@@ -98,7 +97,8 @@
 /* modal popups https://1stwebdesigner.com/15-modal-popup-windows-created-with-only-css/ */
 
 .form-field select option {
-  margin-top: 2rem
+  margin-top: 2rem;
+  font-weight: inherit;
 }
 
 .form-field input:focus,
@@ -111,17 +111,16 @@
 }
 
 .submit-btn {
-  transition: all .3s;
-  color: var(--color-primary-darker);
+  background-image: none;
+  background-color: var(--color-primary);
+  color: var(--color-btn-gray);
   justify-self: self-end;
-  font-size: 1.6rem;
   align-self: center;
 }
 
-.submit-btn:hover {
-  background-image: linear-gradient(var(--color-primary), var(--color-primary-darker) 100%);
-  color: var(--color-btn-gray);
-  transform: scale(1.1);
+.submit-btn:hover,.submit-btn:active {
+  background-color: var(--color-primary-darker);
+  color: var(--color-btn-gray)
 }
 
 /* ------------------------------------- */
@@ -146,14 +145,13 @@
 
 .buttons-deletion button {
   font-weight: 400;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   color: var(--color-primary)
 }
 
 .buttons-deletion button:hover {
   background-image: linear-gradient(var(--color-primary), var(--color-primary-darker) 100%);
   color: var(--color-btn-gray);
-  transform: scale(1.1);
 }
 
 /* ---------------------------------------- */

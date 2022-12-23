@@ -55,7 +55,7 @@ class DetailsTodoView extends View {
               <svg class="icon-details">
                 <use href="${icons}#icon-calendar"></use>
               </svg>
-              <span>Added</span>
+              <span>ADDED</span>
             </div>
             <span class="todo-created-date">${this._data.created}</span>
           </div>
@@ -64,7 +64,7 @@ class DetailsTodoView extends View {
               <svg class="icon-details">
                 <use href="${icons}#icon-calendar"></use>
               </svg>
-              <span>Deadline</span>
+              <span>DEADLINE</span>
             </div>
             <span class="todo-deadline-date">${this._data.deadline}</span>
           </div>

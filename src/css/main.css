@@ -6,6 +6,6 @@
   grid-template-columns: 1fr 2fr;
   align-items: center;
   justify-content: space-around;
-  max-height: 56rem;
+  height: 56rem;
   column-gap: 1.2rem
 }

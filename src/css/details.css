@@ -1,18 +1,61 @@
 .container-todo-details {
   display: grid;
-  grid-template-columns: 1fr;
-  margin-right: 1.2rem
+  grid-template-rows: auto 1fr;
+  margin-right: 1.2rem;
+  height: 52rem;
+  gap: 1rem
 }
+
+/*----- NAVIGATION in container -------*/
+.nav-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  justify-content: end;
+}
+
+.nav-item {
+  color: var(--color-primary-darker);
+}
+
+.icon-btn-nav {
+  height: 2rem;
+  width: 2rem;
+}
+
+.btn-open {
+  background-image: none;
+  background-color: var(--color-primary);
+  color: var(--color-btn-gray);
+}
+
+.btn-open:hover, .btn-open:active {
+  background-color: var(--color-primary-darker);
+  color: var(--color-btn-gray)
+}
+
+.btn-reset {
+  background-color: transparent;
+  box-shadow: 0px 0px 2px 0px var(--color-light-gray);
+  color: var(--color-light-gray)
+}
+
+.btn-reset:hover, .btn-reset:active {
+  background-color: var(--color-light-gray);
+  color: var(--color-dark-gray);
+}
+
+/*----- SPLASH in container -------*/
 
 .details-splash {
   background-color: var(--color-btn-gray);
   border-radius: 5px;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   display: grid;
   grid-template-rows: 1fr 3fr;
   justify-items: center;
   align-items: center;
-  height: 40rem;
 }
 
 .image-splash {
@@ -23,17 +66,19 @@
   align-self: self-end;
 }
 
+/*----- DETAILS in container -------*/
+
 .todo-details {
   background-image: linear-gradient(var(--color-btn-gray), var(--color-light-gray) 200%);
   border-radius: 5px;
   box-shadow: var(--box-shadow);
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   display: grid;
   grid-template-rows: repeat(6, 1fr);
   gap: 2rem;
   padding: 2.4rem;
-  height: 40rem;
-  max-height: 40rem;
+  height: 42rem;
+  max-height: 42rem;
 }
 
 .removed {
@@ -48,7 +93,10 @@
 }
 
 .todo-status {
-  justify-self: self-end
+  justify-self: self-end;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem
 }
 
 .todo-main-content {
@@ -71,6 +119,11 @@
 
 .todo-deadline {
   justify-self: self-end;
+  justify-items: end;
+}
+
+.todo-created {
+  justify-items: start;
 }
 
 .todo-created-title,
@@ -84,7 +137,6 @@
   height: 1.6rem;
   width: 1.6rem;
 }
-
 
 .edit-delete-todo {
   grid-row: 6 / 7;
@@ -102,7 +154,6 @@
 .btn-edit:hover, .btn-delete:hover {
   background-image: linear-gradient(var(--color-primary), var(--color-primary-darker) 100%);
   color: var(--color-btn-gray);
-  transform: scale(1.1);
 }
 
 .icon-edit, .icon-delete {

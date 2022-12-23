@@ -1,43 +1,37 @@
 .page-header {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  justify-items: stretch;
-  max-height: 12rem;
-  align-items: center;
-  padding-top: 2rem;
-  /* background-color: aquamarine; */
+    max-height: 12rem;
+    padding-top: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 4rem
 }
 
 .page-header-logo {
-  max-height: 8rem;
-  font-weight: bold;
-  background-color: transparent;
+    max-height: 8rem;
+    background-color: transparent;
 }
 
-.nav {
-  grid-column: 6 / 7;
+.page-header h1 {
+    font-size: 3rem;
+    font-weight: 600;
+    z-index: 1;
+    overflow: hidden;
+    backface-visibility: hidden
+}
+h1 span::before,
+h1 span::after {
+    pointer-events: none;
+    backface-visibility: hidden;
 }
 
-.nav-list {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  justify-content: end;
-}
-
-.nav-item {
-  color: var(--color-primary-darker);
-}
-
-
-.icon-btn-nav {
-  height: 2rem;
-  width: 2rem;
-}
-
-.nav-btn:hover {
-  background-image: linear-gradient(var(--color-primary), var(--color-primary-darker) 100%);
-  color: var(--color-btn-gray);
-  transform: scale(1.1);
+h1 span svg.svg-underline {
+    position: relative;
+    z-index: -1;
+    overflow: hidden;
+    margin: 0;
+    opacity: 0.7;
+    transform: translateY(-80%);
+    fill: none;
+    stroke: var(--color-primary-lighter);
+    stroke-width: 36;
 }
