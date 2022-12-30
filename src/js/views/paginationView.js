@@ -34,24 +34,28 @@ class PaginationView extends View {
     }
 
     if (numTodos >= 1 && currentPage === 1 && numPages === 0) {
+      console.log("case 1")
       return `
       <button class="btn btn-pagination btn--page-before hidden" data-goto="">
         <svg class="icon-page">
           <use href="${icons}#icon-arrow-left"></use>
         </svg>
-        <span class="hidden"></span>
+        <span class="hidden page--text"></span>
+        <span class="hidden page--number"></span>
       </button>
       <span class="current-page">${currentPage}</span>
       <button class="btn btn-pagination btn--page-after hidden">
         <svg class="icon-page hidden">
           <use href="${icons}#icon-arrow-right"></use>
         </svg>
-        <span class="hidden"></span>
+        <span class="hidden page--text"></span>
+        <span class="hidden page--number"></span>
       </button>
       `;
     }
 
     if (currentPage === 1 && numPages === 1) {
+      console.log("case 2 OKKKK")
       return `
       <button class="btn btn-pagination btn--page-before hidden" data-goto="${
         currentPage - 1
@@ -59,31 +63,36 @@ class PaginationView extends View {
         <svg class="icon-page">
           <use href="${icons}#icon-arrow-left"></use>
         </svg>
-        <span class="hidden">Page ${currentPage - 1}</span>
+        <span class="hidden page--text">Page</span>
+        <span class="hidden page--number">${currentPage - 1}</span>
       </button>
       <span class="current-page">${currentPage}</span>
       <button class="btn btn-pagination btn--page-after hidden">
         <svg class="icon-page hidden">
           <use href="${icons}#icon-arrow-right"></use>
         </svg>
-        <span class="hidden">Page ${currentPage + 1}</span>
+        <span class="hidden page--text">Page</span>
+        <span class="hidden page--number">${currentPage + 1}</span>
       </button>
       `;
     }
 
     if (currentPage === 1 && numPages > 1) {
+      console.log("case 3 OKKK")
       return `
       <button class="btn btn-pagination btn--page-before hidden">
         <svg class="icon-page hidden">
           <use href="${icons}#icon-arrow-left"></use>
         </svg>
-        <span class="hidden">Page ${currentPage - 1}</span>
+        <span class="hidden page--text">Page</span>
+        <span class="hidden page--number">${currentPage - 1}</span>
       </button>
       <span class="current-page">${currentPage}</span>
       <button class="btn btn-pagination btn--page-after" data-goto="${
         currentPage + 1
       }">
-        <span>Page ${currentPage + 1}</span>
+        <span class="page--text">Page</span>
+        <span class="page--number">${currentPage + 1}</span>
         <svg class="icon-page">
           <use href="${icons}#icon-arrow-right"></use>
         </svg>
@@ -91,6 +100,7 @@ class PaginationView extends View {
       `;
     }
     if (currentPage === numPages && numPages > 1) {
+      console.log("case 4 OKKKK")
       return `
       <button class="btn btn-pagination btn--page-before" data-goto="${
         currentPage - 1
@@ -98,18 +108,21 @@ class PaginationView extends View {
         <svg class="icon-page">
           <use href="${icons}#icon-arrow-left"></use>
         </svg>
-        <span>Page ${currentPage - 1}</span>
+        <span class="page--text">Page</span>
+        <span class="page--number">${currentPage - 1}</span>
       </button>
       <span class="current-page">${currentPage}</span>
       <button class="btn btn-pagination btn--page-after hidden">
         <svg class="icon-page hidden">
           <use href="${icons}#icon-arrow-right"></use>
         </svg>
-        <span class="hidden">Page ${currentPage + 1}</span>
+        <span class="hidden page--text">Page</span>
+        <span class="hidden page--number">${currentPage + 1}</span>
       </button>
       `;
     }
     if (currentPage < numPages) {
+      console.log("case 5 OKKK")
       return `
       <button class="btn btn-pagination btn--page-before" data-goto="${
         currentPage - 1
@@ -117,13 +130,15 @@ class PaginationView extends View {
         <svg class="icon-page">
           <use href="${icons}#icon-arrow-left"></use>
         </svg>
-        <span>Page ${currentPage - 1}</span>
+        <span class="page--text">Page</span>
+        <span class="page--number">${currentPage - 1}</span>
       </button>
       <span class="current-page">${currentPage}</span>
       <button class="btn btn-pagination btn--page-after" data-goto="${
         currentPage + 1
       }">
-        <span>Page ${currentPage + 1}</span>
+        <span class="page--text">Page</span>
+        <span class="page--number">${currentPage + 1}</span>
         <svg class="icon-page">
           <use href="${icons}#icon-arrow-right"></use>
         </svg>

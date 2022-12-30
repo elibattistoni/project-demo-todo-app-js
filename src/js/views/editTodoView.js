@@ -4,7 +4,7 @@ class EditTodoView extends View {
   _parentElement = document.querySelector(".form-edit-todo");
   _windowForm = document.querySelector(".modal-edit");
   _overlay = document.querySelector(".overlay");
-  _containerDetails = document.querySelector(".container-todo-details");
+  _containerDetails = document.querySelector(".todo-details");
   _data = {};
 
   constructor() {

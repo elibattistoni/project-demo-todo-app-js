@@ -14,3 +14,53 @@
   visibility: hidden;
   opacity: 0;
 }
+
+/*------------------------------------*/
+
+.modal-reset {
+  height: 24rem;
+  grid-template-rows: 0.5fr 2fr 1fr;
+}
+
+.reset-message {
+  text-align: center;
+  align-self: center;
+  padding: 0 2rem;
+}
+
+.buttons-deletion {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  align-self: center
+}
+
+.btn-delete-yes, .btn-delete-no {
+  font-weight: 400;
+  font-size: 1.8rem;
+}
+
+/*------------------------------------------*/
+
+
+.btn-delete-yes {
+  background-image: none;
+  background-color: var(--color-primary);
+  color: var(--color-btn-gray);
+}
+
+.btn-delete-yes:hover, .btn-delete-yes:active {
+  background-color: var(--color-primary-darker);
+  color: var(--color-btn-gray)
+}
+
+.btn-delete-no {
+  background-color: transparent;
+  box-shadow: 0px 0px 2px 0px var(--color-dark-gray);
+  color: var(--color-dark-gray)
+}
+
+.btn-delete-no:hover, .btn-delete-no:active {
+  background-color: var(--color-light-gray);
+  color: var(--color-dark-gray);
+}

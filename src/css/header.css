@@ -1,6 +1,5 @@
 .page-header {
     max-height: 12rem;
-    padding-top: 2rem;
     display: flex;
     align-items: center;
     gap: 4rem
@@ -16,7 +15,12 @@
     font-weight: 600;
     z-index: 1;
     overflow: hidden;
-    backface-visibility: hidden
+    backface-visibility: hidden;
+    align-self: end;
+}
+h1 span {
+    display: flex;
+    flex-direction: column;
 }
 h1 span::before,
 h1 span::after {

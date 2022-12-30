@@ -72,14 +72,14 @@ class DetailsTodoView extends View {
       </main>
 
       <footer class="edit-delete-todo">
-        <button class="btn btn-delete">
-          <svg class="icon-delete">
-            <use href="${icons}#icon-trash"></use>
-          </svg>
-        </button>
         <button class="btn btn-edit">
           <svg class="icon-edit">
             <use href="${icons}#icon-edit"></use>
+          </svg>
+        </button>
+        <button class="btn btn-delete">
+          <svg class="icon-delete">
+            <use href="${icons}#icon-trash"></use>
           </svg>
         </button>
       </footer>

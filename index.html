@@ -43,46 +43,38 @@
 
 
     <main class="todos-container">
-        <!-- section for displaying the list of todos -->
-        <section class="container-todos-preview">
-            <div class="sort-todos hidden"></div>
+        <div class="sort-todos hidden"></div>
+        <div class="nav">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <button class="btn nav-btn btn-open">
+                        <svg class="icon-btn-nav">
+                            <use href="src/img/icons.svg#icon-add"></use>
+                        </svg>
+                    </button>
+                </li>
 
-            <ul class="todos-list"></ul>
-            <div class="pagination"></div>
+                <li class="nav-item">
+                    <button class="btn nav-btn btn-reset">
+                        <svg class="icon-btn-nav">
+                            <use href="src/img/icons.svg#icon-trash"></use>
+                        </svg>
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <ul class="todos-list"></ul>
+        <section class="details-splash">
+            <p class="text-splash">
+                Start by adding a todo or clicking on an existing one. Have fun!
+            </p>
+            <img src="src/img/splash.svg" alt="Welcome" class="image-splash"/>
         </section>
 
-        <!-- section for displaying the details of the todos -->
-        <section class="container-todo-details">
-            <div class="nav">
-                <ul class="nav-list">
-                    <li class="nav-item">
-                        <button class="btn nav-btn btn-open">
-                            <svg class="icon-btn-nav">
-                                <use href="src/img/icons.svg#icon-add"></use>
-                            </svg>
-                        </button>
-                    </li>
+        <!-- show this when click on todo in list-->
+        <section class="todo-details removed"></section>
+        <div class="pagination"></div>
 
-                    <li class="nav-item">
-                        <button class="btn nav-btn btn-reset">
-                            <svg class="icon-btn-nav">
-                                <use href="src/img/icons.svg#icon-trash"></use>
-                            </svg>
-                        </button>
-                    </li>
-                </ul>
-            </div>
-            <!--  hide this when the user adds a todo -->
-            <section class="details-splash">
-                <p class="text-splash">
-                    Start by adding a todo or clicking on an existing one. Have fun!
-                </p>
-                <img src="src/img/splash.svg" alt="Welcome" class="image-splash"/>
-            </section>
-
-            <!-- show this when click on todo in list-->
-            <section class="todo-details removed"></section>
-        </section>
     </main>
 </div>
 

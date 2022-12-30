@@ -2,7 +2,7 @@ import View from "./View.js";
 class DeleteTodoView extends View {
   _windowForm = document.querySelector(".modal-reset");
   _btnOpenDeleteAll = document.querySelector(".btn-reset");
-  _containerDetails = document.querySelector(".container-todo-details");
+  _containerDetails = document.querySelector(".todo-details");
   _clickOnAll;
 
   constructor() {

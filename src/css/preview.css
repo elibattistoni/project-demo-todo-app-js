@@ -1,13 +1,7 @@
-.container-todos-preview {
-  /*height: 48rem;*/
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  margin-left: 1.2rem;
-}
+
 
 .sort-todos {
   justify-self: right;
-  margin-bottom: 2rem;
 }
 
 .btn-sort {
@@ -34,28 +28,26 @@
   display: grid;
   grid-template-rows: repeat(5, 1fr);
   gap: 1rem;
-  font-size: 1.8rem;
-  height: 42rem;
-  max-height: 42rem;
-}
 
+  height: 100%
+}
 
 .preview-todo-item {
   background-image: linear-gradient(var(--color-btn-gray), var(--color-light-gray) 150%);
   border-radius: 5px;
-  padding: 0.5rem 1rem;
   box-shadow: var(--box-shadow);
 }
 
-.preview-todo-item:hover {
+.preview-todo-item:hover,.preview-todo-item:active {
   background-image: linear-gradient(var(--color-btn-gray), var(--color-light-gray) 50%);
 }
 
 .preview-link {
   display: grid;
   grid-template-rows: repeat(2, 1fr);
-  gap: 1.2rem;
-  margin-top: 0.8rem
+  height: 100%;
+  padding: 1.2rem;
+  font-size: 1.8rem;
 }
 
 .preview-title-container {
@@ -70,26 +62,26 @@
 }
 
 .icon-clock-preview {
-  height: 1.6rem;
-  width: 1.6rem
+  height: 2rem;
+  width: 2rem
 }
 
 .preview-todo-info {
   font-size: 1.4rem;
   display: flex;
   justify-content: space-between;
+  align-items: end;
 }
 
 .icon-preview {
-  height: 1.4rem;
-  width: 1.4rem;
+  height: 1.6rem;
+  width: 1.6rem;
 }
 
 .preview-todo-deadline, .preview-todo-status {
   display: flex;
-  align-items: center;
   gap: 0.4rem;
-  align-items: flex-end;
+  align-items: center;
 }
 
 .item-expiring {}
@@ -99,7 +91,7 @@
   color: var(--color-btn-gray)
 }
 
-.item-active:hover {
+.item-active:hover,.item-active:active {
   background-image: linear-gradient(var(--color-primary-lighter), var(--color-primary) 50%);
 }
 

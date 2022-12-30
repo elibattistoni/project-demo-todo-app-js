@@ -125,34 +125,6 @@
 
 /* ------------------------------------- */
 
-.modal-reset {
-  height: 24rem;
-  grid-template-rows: 0.5fr 2fr 1fr;
-}
-
-.reset-message {
-  text-align: center;
-  align-self: center;
-  padding: 0 2rem;
-}
-
-.buttons-deletion {
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-end;
-  align-self: center
-}
-
-.buttons-deletion button {
-  font-weight: 400;
-  font-size: 1.8rem;
-  color: var(--color-primary)
-}
-
-.buttons-deletion button:hover {
-  background-image: linear-gradient(var(--color-primary), var(--color-primary-darker) 100%);
-  color: var(--color-btn-gray);
-}
 
 /* ---------------------------------------- */
 .modal-message {

@@ -19,7 +19,7 @@ class AddTodoView extends View {
     const date = new Date();
     const dateDay = `${date.getDate()}`;
     const today = `${date.getFullYear()}-${date.getMonth() + 1}-${
-      dateDay.length == 1 ? `0${dateDay}` : dateDay
+      dateDay.length === 1 ? `0${dateDay}` : dateDay
     }`;
     return `
     <h4 class="form-heading">Add TODO</h4>
@@ -44,7 +44,7 @@ class AddTodoView extends View {
           placeholder="Description"
           rows="4"
           cols="40"
-          maxlength="367"
+          maxlength="200"
         ></textarea>
       </li>
       <li class="form-field">
