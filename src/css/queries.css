@@ -1,0 +1,341 @@
+@media (min-width:87em) {
+
+  /* this equals to 1400px */
+  .container {
+    max-width: 128rem;
+    row-gap: 4.8rem;
+  }
+
+  .todos-container {
+    height: 64rem;
+    padding: 2.4rem;
+    column-gap: 2rem;
+  }
+
+  .page-header-logo {
+    max-height: 10rem
+  }
+
+  .icon-btn-nav, .icon-edit, .icon-delete, .icon-clock-preview, .icon-details {
+    height: 2.4rem;
+    width: 2.4rem
+  }
+
+  .nav-list {
+    gap: 3rem
+  }
+
+  .details-splash {
+    font-size: 2.4rem
+  }
+
+  .image-splash {
+    height: 20rem
+  }
+
+  .form-heading {
+    font-size: 2.4rem;
+  }
+
+  .form-list-fields,
+  .form-field input,
+  .form-field textarea,
+  .form-field select {
+    font-size: 2rem
+  }
+
+  .form-add-todo, .form-edit-todo {
+    grid-template-rows: 0fr 3fr 0.5fr;
+  }
+
+  .submit-btn {
+    font-size: 2rem;
+  }
+
+  .btn-sort {
+    font-size: 1.8rem;
+  }
+
+  .icon-sort {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
+  .icon-preview {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .btn-pagination {
+    font-size: 1.8rem;
+  }
+
+  .icon-page {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
+  .current-page {
+    font-size: 1.8rem;
+  }
+
+  .todo-list {
+    font-size: 2rem;
+    gap: 1.6rem
+  }
+
+  .preview-link {
+    font-size: 2rem;
+  }
+
+  .preview-todo-info {
+    font-size: 1.8rem;
+  }
+
+  .todo-details {
+    padding: 2.8rem
+  }
+
+  .reset-message, .btn-delete-no, .btn-delete-yes {
+    font-size: 2.4rem;
+  }
+
+  .modal-message {
+    height: 48rem;
+    width: 64rem;
+  }
+
+  .image-edited, .image-message {
+    width: 48rem
+  }
+
+  .added-message h3 {
+    font-size: 2.4rem
+  }
+}
+
+@media (max-width: 60em) {
+
+  /* 960px */
+  html {
+    /* 9px / 16px  */
+    font-size: 56.25%;
+  }
+
+  .icon-btn-nav, .icon-edit, .icon-delete, .icon-details, .icon-clock-preview {
+    height: 2rem;
+    width: 2rem
+  }
+}
+
+@media (max-width: 53em) {
+
+  /* 848px */
+  .btn-pagination .page--text {
+    display: none
+  }
+
+  .todo-details {
+    font-size: 1.6rem;
+  }
+
+  .btn--page-after {
+    grid-column: 7 / 8;
+  }
+
+  .btn--page-before {
+    grid-column: 1 / 2;
+  }
+
+  .sort--specification {
+    display: none
+  }
+
+  .icon-btn-nav, .icon-edit, .icon-delete, .icon-details, .icon-clock-preview {
+    height: 1.6rem;
+    width: 1.6rem
+  }
+
+  .modal-add, .modal-edit {
+    width: 48rem
+  }
+}
+
+@media (max-width: 40em) {
+
+  /* 640px */
+  .nav-btn, .btn-edit, .btn-delete {
+    padding: 0.4rem 0.8rem;
+  }
+
+  .todos-container {
+    height: 48rem;
+    gap: 1.6rem;
+    padding: 1.6rem
+  }
+
+  .todo-details {
+    padding: 1.2rem 2.4rem;
+    font-size: 1.4rem
+  }
+
+  .preview-todo-info {
+    display: none
+  }
+
+  .preview-link {
+    grid-template-rows: 1fr;
+    padding: 1.2rem 2.4rem;
+    font-size: 1.4rem
+  }
+
+  .icon-clock-preview, .icon-details {
+    height: 2rem;
+    width: 2rem;
+  }
+
+  .btn-sort, .btn-pagination {
+    padding: 0.4rem 0.8rem;
+  }
+
+  .todos-list {
+    gap: 1.6rem
+  }
+
+  .modal-add, .modal-edit {
+    height: 56rem;
+    width: 38rem;
+    font-size: 1.6rem;
+  }
+
+  .form-heading {
+    font-size: 1.8rem;
+  }
+
+  .form-list-fields,
+  .form-field input,
+  .form-field textarea,
+  .form-field select {
+    font-size: 1.6rem
+  }
+
+  .submit-btn {
+    font-size: 1.8rem;
+  }
+
+  .form-list-fields {
+    gap: 1.4rem
+  }
+
+  .form-field {
+    grid-template-columns: 1fr;
+    gap: 0.8rem
+  }
+
+  .form-add-todo, .form-edit-todo {
+    grid-template-rows: auto 1fr auto;
+    gap: 2rem
+  }
+
+  .modal-message {
+    height: 42rem;
+    width: 42rem;
+  }
+
+  .image-edited, .image-message {
+    width: 38rem
+  }
+
+  .added-message h3 {
+    font-size: 1.8rem
+  }
+}
+
+@media (max-width: 30em) {
+
+  /* 492 px*/
+  .page--number {
+    display: none;
+  }
+
+  .icon-clock-preview {
+    display: none;
+  }
+
+  .btn-sort span {
+    display: none;
+  }
+
+  .todo-details {
+    font-size: 1.2rem;
+    padding: 2.4rem 1.2rem;
+    gap: 1rem;
+    grid-template-rows: auto 1fr auto
+  }
+
+  .icon-details, .icon-btn-nav, .icon-edit, .icon-delete {
+    height: 1.4rem;
+    width: 1.4rem;
+  }
+
+  .todo-deadline-title, .todo-created-title {
+    flex-direction: column;
+  }
+
+  .todo-dates {
+    gap: 2.4rem
+  }
+
+  .todo-deadline, .todo-created {
+    align-items: center
+  }
+
+  .edit-delete-todo {
+    grid-column: 1 / 3;
+    justify-content: center;
+  }
+
+  .todo-header {
+    justify-content: space-around;
+    gap: 1rem;
+    flex-direction: column
+  }
+
+  .preview-title-container {
+    justify-content: center;
+  }
+
+  .page-header-logo {
+    height: 6rem
+  }
+
+  .page-header {
+    gap: 2.4rem
+  }
+
+  .page-header h1 {
+    font-size: 2.4rem;
+  }
+
+  .modal-message {
+    height: 32rem;
+    width: 32rem;
+  }
+
+  .image-edited, .image-message {
+    width: 16rem
+  }
+
+  .added-message h3 {
+    font-size: 1.4rem
+  }
+
+  .modal-add, .modal-edit {
+    width: 32rem;
+  }
+
+  .todo-description {
+    justify-self: center
+  }
+
+}
