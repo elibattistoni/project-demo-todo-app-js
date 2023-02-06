@@ -118,7 +118,7 @@
   align-self: center;
 }
 
-.submit-btn:hover,.submit-btn:active {
+.submit-btn:hover, .submit-btn:active {
   background-color: var(--color-primary-darker);
   color: var(--color-btn-gray)
 }
@@ -142,9 +142,9 @@
 }
 
 .image-message {
-  width: 36rem;
+  max-width: 36rem;
 }
 
 .image-edited {
-  width: 20rem
+  height: 25rem
 }

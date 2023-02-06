@@ -105,8 +105,12 @@
     width: 64rem;
   }
 
-  .image-edited, .image-message {
-    width: 48rem
+  .image-message {
+    max-width: 48rem
+  }
+
+  .image-edited {
+    max-height: 35rem
   }
 
   .added-message h3 {
@@ -242,8 +246,12 @@
     width: 42rem;
   }
 
-  .image-edited, .image-message {
-    width: 38rem
+  .image-message {
+    max-width: 38rem
+  }
+
+  .image-edited {
+    max-height: 30rem
   }
 
   .added-message h3 {
